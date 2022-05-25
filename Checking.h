@@ -12,13 +12,11 @@
 
 #include "Account.h"
 
-class  Checking : public Account 
-{
-public:
-    Checking() : Account(this->getBalance()) {}
-    void withdraw (float);
-    void monthlyProc();
-
+class  Checking : public Account{
+    public:
+        Checking(float, float);
+        void withdraw (float);
+        void monthlyProc();
 };
 
 #endif /* CHECKING_H */
