@@ -11,6 +11,10 @@
 #include <iostream>
 using namespace std;
 
+Checking::Checking(float balance, float aInterest) : Account(balance, aInterest){
+    
+}
+
 
 void Checking::withdraw(float withdraw){
     if ((this->getBalance() - withdraw) < 0) {                 // Check if the balance goes below $0
