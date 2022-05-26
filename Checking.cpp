@@ -42,6 +42,7 @@ void Checking::withdraw(float minusAmount){
 
 void Checking::monthlyProc() {                      // Montly fee of $5 plus $0.10 per withdrawal 
     cout<<"Monthly Services charges"<<endl;
-    mCharges += (5.00 + (Account::withPerMo * .10));
+    Account::mCharges += (5.00 + (Account::withPerMo * .10));
+    cout<<"$"<<Account::mCharges<<endl;
     Account::monthlyProc();
 }
