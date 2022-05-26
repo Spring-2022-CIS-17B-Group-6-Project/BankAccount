@@ -15,6 +15,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Account.cpp</itemPath>
+      <itemPath>AccountTest.cpp</itemPath>
       <itemPath>Checking.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -42,6 +43,8 @@
       <item path="Account.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Account.h" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AccountTest.cpp" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Checking.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -71,6 +74,8 @@
       <item path="Account.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Account.h" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AccountTest.cpp" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Checking.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Account.o \
+	${OBJECTDIR}/AccountTest.o \
 	${OBJECTDIR}/Checking.o
 
 
@@ -72,6 +73,11 @@ ${OBJECTDIR}/Account.h.gch: Account.h
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o "$@" Account.h
+
+${OBJECTDIR}/AccountTest.o: AccountTest.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AccountTest.o AccountTest.cpp
 
 ${OBJECTDIR}/Checking.o: Checking.cpp
 	${MKDIR} -p ${OBJECTDIR}

@@ -11,7 +11,7 @@
 #include <iostream>
 using namespace std;
 
-Checking::Checking(float balance, float aInterest) : Account(balance, aInterest){
+/*Checking::Checking(float balance, float aInterest) : Account(balance, aInterest){
     
 }
 
@@ -46,4 +46,4 @@ void Checking::monthlyProc() {                      // Montly fee of $5 plus $0.
     mCharges += (5.00 + (withdraw * .10));
     Account::monthlyProc(); 
     Account::calcInt();
-}
+}*/

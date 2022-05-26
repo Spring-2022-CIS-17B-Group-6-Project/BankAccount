@@ -39,7 +39,7 @@ void Account::monthlyProc() {
 }
 
 void Account::calcInt() {
-    float mInterest = aInterest / 12;
+    float mInterest = aInterest / 12.0;
     mInterest *= balance;
     balance += mInterest;
 }
