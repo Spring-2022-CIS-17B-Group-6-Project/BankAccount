@@ -2,7 +2,7 @@
  * File:   Checking.cpp
  * Author: Liliana Darch
  * Created on May 25, 2022, 10:00 AM
- * Last modified on 
+ * Last modified on May 25, 2022 11:19PM by Joseph Hernandez
  * Purpose: Checking class implementation   
  */
 
