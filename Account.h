@@ -32,7 +32,7 @@ class Account{
         void setMCharges(float);
         
         
-    private:
+    protected:
         void calcInt();
 
         unsigned int depPerMo;          // Deposits per month
