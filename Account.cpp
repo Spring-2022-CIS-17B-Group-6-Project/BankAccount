@@ -21,6 +21,7 @@ Account::Account(float balance, float aInterest) {
     this->mCharges = 0.0;               // Init monthly charges
 }
 
+
 void Account::deposit(float deposit) {
     balance += deposit;                 // Add deposit to balance
     depPerMo++;                         // Increment number of deposits per month
