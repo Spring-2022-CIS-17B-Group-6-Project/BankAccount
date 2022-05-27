@@ -35,6 +35,7 @@ void Account::transfer(Account &toAccount, float amount){
     if(this->getBalance() - amount < 0){
         cout<<"Cannot transfer $" << amount << "\n"
                 <<"Your account only has $" << this->getBalance() <<endl;
+        cout<<"Cancelling request..."<<endl<<endl;
     }
     else{
         this->setBalance(this->getBalance() - amount);

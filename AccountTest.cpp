@@ -122,6 +122,9 @@ int main(int argv, char** argc){
     cout <<"Checking balance = $"<<newChecking.getBalance()<<endl;
     cout <<"Saving balance   = $"<<newSavings.getBalance()<<endl;
     
+    cout<<"Attempting to transfer $250.00 from savings to checking..."<<endl;
+    
+    newSavings.transfer(newChecking,250.00);
     
     return 0;
 }
