@@ -17,6 +17,7 @@ class Account{
         Account(float, float);
         virtual void deposit(float);
         virtual void withdraw(float);
+        void transfer(Account&,float);
         virtual void monthlyProc();
         
         inline unsigned int getDepPerMo() {return depPerMo;}

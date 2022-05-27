@@ -9,6 +9,9 @@
 
 
 #include "Account.h"
+#include "iostream"
+
+using namespace std;
 
 Account::Account(float balance, float aInterest) {
     this->balance = balance;            // Set balance
@@ -27,6 +30,18 @@ void Account::withdraw(float withdraw) {
     balance -= withdraw;                // Subtract withdraw from balance
     withPerMo++;                        // Increment number of withdraws per month
 }
+
+void Account::transfer(Account &toAccount, float amount){
+    if(this->getBalance() - amount < 0){
+        cout<<"Cannot transfer $" << amount << "\n"
+                <<"Your account only has $" << this->getBalance() <<endl;
+    }
+    else{
+        this->setBalance(this->getBalance() - amount);
+        toAccount.setBalance(toAccount.getBalance() + amount); 
+    }
+}
+
 
 void Account::monthlyProc() {
     balance -= mCharges;                // Subtract monthly charges from balance
