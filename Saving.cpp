@@ -12,30 +12,40 @@
 #include <iostream>
 using namespace std;
 
-Saving::Saving(float balance, int withPerMo) : Account(balance, withPerMo){
-    if((Account::balance) < 25){
-        this->activeStatus = false;
-    } else{
-        this->activeStatus = true;
+Saving::Saving(float balance, float aInterest) : Account(balance, withPerMo){
+    activeStatus = false;
+    if(balance >= 25){
+        activeStatus = true;
     }
 }
 
 void Saving::withdraw(float withdrawAmnt){
     if (!activeStatus){
-        cout << "Your account balance is lower than $25. Please deposit more money before withdrawing." << endl;
-        
+        cout << "Your account balance is $"<<Account::balance<<"\n"
+                <<"Please deposit more money before withdrawing." << endl;
     } else {
         Account::withdraw(withdrawAmnt);
+        if(Account::balance < 0){
+            activeStatus = false;
+            cout << "Your account is negative"<<endl;
+        }
     }
 }
 void Saving::deposit(float depositAmnt){
-    if (!activeStatus){
-        cout << "Your account balance is lower than $25. Please deposit more money before withdrawing." << endl;
+    // Check if account is not active, if not active and depositAmnt >= 25
+    // then acvtiveStatus = true;
+    if(!activeStatus && depositAmnt >= 25) activeStatus = true;
+    
+    Account::deposit(depositAmnt);
+    
+    /*if (!activeStatus){
+        cout << "Your account balance is lower than $25.\n"
+                <<"Please deposit more money before withdrawing." << endl;
         Account::balance += depositAmnt;
         if(Account::balance > 25){
             this->activeStatus = true;
         }
     } else {
         Account::deposit(depositAmnt);
-    }
+    }*/
 }

@@ -11,6 +11,7 @@ using namespace std;
 
 #include "Account.h"
 #include "Checking.h"
+#include "Saving.h"
 
 int main(int argv, char** argc){
     float balance, aInterest;
@@ -53,6 +54,7 @@ int main(int argv, char** argc){
     cout<<"\tDeposits per month  = " << newAccount.getDepPerMo()  << endl;
     cout<<"\tWithdraws per month = " << newAccount.getWithPerMo() << endl;
     
+    cout <<endl<<endl;
     
     // Checking account test
     
@@ -87,7 +89,28 @@ int main(int argv, char** argc){
     cout<<"\tDeposits per month  = " << newChecking.getDepPerMo()  << endl;
     cout<<"\tWithdraws per month = " << newChecking.getWithPerMo() << endl;
     
+    cout << endl << endl;
+    // Savings account
+    Saving newSavings(300.00, 8.7);
+    cout <<"Savings balance                      = $"<<newSavings.getBalance()<<endl;
     
+    newSavings.deposit(300.00);
+    newSavings.deposit(150.00);
+    newSavings.deposit(50.00);
+    
+    cout<<"Savings Balance after $500 deposit   = $"<<newSavings.getBalance()<<endl;
+    
+    newSavings.withdraw(500.00);
+    newSavings.withdraw(500.00); // This should cause the account to go negative
+    
+    newSavings.withdraw(5.00);//Attempt to withdraw $5 from balance -$200
+    
+    newSavings.deposit(250.00);// Bring account back to $50
+    
+    cout<<"Account balance                      = $"<<newSavings.getBalance()<<endl;
+    
+    newSavings.withdraw(5.00);
+    cout<<"Account balance                      = $"<<newSavings.getBalance()<<endl;
     
     return 0;
 }

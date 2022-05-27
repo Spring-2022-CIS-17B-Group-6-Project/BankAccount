@@ -15,7 +15,7 @@ class Saving : public Account {
     private:
         bool activeStatus;
     public:
-        Saving(float, int);
+        Saving(float, float);
         bool getActiveStatus(){return activeStatus;};
         
         void withdraw(float); 
