@@ -32,7 +32,6 @@ void Saving::deposit(float depositAmnt){
     if (!activeStatus){
         cout << "Your account balance is lower than $25. Please deposit more money before withdrawing." << endl;
         Account::balance += depositAmnt;
-        cout<< "new balance: " << newBalance<< endl;
         if(Account::balance > 25){
             this->activeStatus = true;
         }
