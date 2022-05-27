@@ -112,5 +112,16 @@ int main(int argv, char** argc){
     newSavings.withdraw(5.00);
     cout<<"Account balance                      = $"<<newSavings.getBalance()<<endl;
     
+    cout <<"Checking before transfer = $"<<newChecking.getBalance()<<endl;
+    cout <<"Savings before transfer  = $"<<newSavings.getBalance()<<endl;
+    
+    
+    newChecking.transfer(newSavings, 100.00);
+    
+    cout <<"Transfer $100.00 from checking into savings"<<endl;
+    cout <<"Checking balance = $"<<newChecking.getBalance()<<endl;
+    cout <<"Saving balance   = $"<<newSavings.getBalance()<<endl;
+    
+    
     return 0;
 }
