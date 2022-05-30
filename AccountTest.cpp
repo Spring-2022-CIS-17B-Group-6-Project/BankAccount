@@ -7,6 +7,7 @@
  */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 #include "Account.h"
@@ -136,7 +137,7 @@ int main(int argv, char** argc){
     cout<<"Calling newSavings.monthlyProc()"<<endl;
     newSavings.monthlyProc();
     cout<<"New account info:" <<endl;
-    cout<<"\tBalance             = $" << newSavings.getBalance()  << endl;
+    cout<<"\tBalance             = $" << fixed << setprecision(2) << newSavings.getBalance()  << endl;
     cout<<"\tAnnual Interest     = " << newSavings.getAInterest() << "%" << endl;
     cout<<"\tMonthly Charges     = $" << newSavings.getMCharges() << endl;
     cout<<"\tDeposits per month  = " << newSavings.getDepPerMo()  << endl;
