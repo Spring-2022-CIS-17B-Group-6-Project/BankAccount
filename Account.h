@@ -22,7 +22,7 @@ public:
 
     inline unsigned int getDepPerMo() const { return depPerMo; }
     inline unsigned int getWithPerMo() const { return withPerMo; }
-    inline unsigned int getAccountNumber() const { return accountNumber };
+    inline unsigned int getAccountNumber() const { return accountNumber; }
     inline float getBalance() const { return balance; }
     inline float getAInterest() const { return aInterest; }
     inline float getMCharges() const { return mCharges; }
@@ -48,7 +48,7 @@ private:
 
 };
 
-int Account::count = 0;
+unsigned int Account::count = 0;
 
 
 #endif /* ACCOUNT_H */

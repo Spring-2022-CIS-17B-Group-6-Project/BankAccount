@@ -20,7 +20,7 @@ Account::Account(float balance, float aInterest) {
     this->withPerMo = 0;                // Init withdraws per month
     this->mCharges = 0.0;               // Init monthly charges
 
-    accountCount++;                    // Keep track of each account
+    count++;                    // Keep track of each account
 
     this->accountNumber = count;
 }
