@@ -133,6 +133,14 @@ int main(int argv, char** argc){
     
     newSavings.transfer(newChecking,250.00);
     
+    cout<<"Calling newSavings.monthlyProc()"<<endl;
+    newSavings.monthlyProc();
+    cout<<"New account info:" <<endl;
+    cout<<"\tBalance             = $" << newSavings.getBalance()  << endl;
+    cout<<"\tAnnual Interest     = " << newSavings.getAInterest() << "%" << endl;
+    cout<<"\tMonthly Charges     = $" << newSavings.getMCharges() << endl;
+    cout<<"\tDeposits per month  = " << newSavings.getDepPerMo()  << endl;
+    cout<<"\tWithdraws per month = " << newSavings.getWithPerMo() << endl;
     
     return 0;
 }
