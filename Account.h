@@ -20,11 +20,11 @@ public:
     void transfer(Account&, float);
     virtual void monthlyProc();
 
-    inline unsigned int getDepPerMo() { return depPerMo; }
-    inline unsigned int getWithPerMo() { return withPerMo; }
-    inline float getBalance() { return balance; }
-    inline float getAInterest() { return aInterest; }
-    inline float getMCharges() { return mCharges; }
+    inline unsigned int getDepPerMo() const { return depPerMo; }
+    inline unsigned int getWithPerMo() const { return withPerMo; }
+    inline float getBalance() const { return balance; }
+    inline float getAInterest() const { return aInterest; }
+    inline float getMCharges() const { return mCharges; }
 
     void setDepPerMo(unsigned int);
     void setWithPerMo(unsigned int);
