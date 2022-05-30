@@ -13,8 +13,6 @@
 #include "Account.h"
 
 class  Checking : public Account{
-    private:
-        float minusAmount;
     public:
         Checking(float, float);
         void withdraw (float);

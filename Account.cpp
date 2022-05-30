@@ -13,6 +13,8 @@
 
 using namespace std;
 
+unsigned int Account::count = 0;
+
 Account::Account(float balance, float aInterest) {
     this->balance = balance;            // Set balance
     this->aInterest = aInterest;        // Set annual interest

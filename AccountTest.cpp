@@ -60,7 +60,7 @@ int main(int argv, char** argc){
     
     // Checking account test
     
-    Checking newChecking(500.00,0.85);
+    Checking newChecking(500.00f,0.85f);
     
     cout << "Your checking account number is: " << newChecking.getAccountNumber() << endl;
     
@@ -96,7 +96,7 @@ int main(int argv, char** argc){
     
     cout << endl << endl;
     // Savings account
-    Saving newSavings(300.00, 8.7);
+    Saving newSavings(300.00f, 8.7f);
     cout << "Your saving account number is: " << newSavings.getAccountNumber() << endl;
     
     cout <<"Savings balance                      = $"<<newSavings.getBalance()<<endl;

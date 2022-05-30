@@ -12,16 +12,16 @@
 #include <iostream>
 using namespace std;
 
-Saving::Saving(float balance, float aInterest) : Account(balance, withPerMo) {
+Saving::Saving(float balance, float aInterest) : Account(balance, aInterest) {
     activeStatus = false;
-    if (balance >= 25) {
+    if (Account::getBalance() >= 25) {
         activeStatus = true;
     }
 }
 
 void Saving::withdraw(float withdrawAmnt) {
     if (!activeStatus) {
-        cout << "Your account balance is $" << Account::balance << "\n"
+        cout << "Your account balance is $" << Account::getBalance() << "\n"
             << "Please deposit more money before withdrawing." << endl;
     }
     else {

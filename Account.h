@@ -48,8 +48,6 @@ private:
 
 };
 
-unsigned int Account::count = 0;
-
 
 #endif /* ACCOUNT_H */
 
