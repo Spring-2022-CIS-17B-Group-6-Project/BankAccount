@@ -6,10 +6,6 @@
  * Purpose: Test the account class to ensure it functions properly
  */
 
-#include <iostream>
-#include <iomanip>
-using namespace std;
-
 #include "Account.h"
 #include "Checking.h"
 #include "Saving.h"
@@ -26,7 +22,7 @@ int main(int argv, char** argc){
     newAccount.withdraw(250.00);
     newAccount.setDepPerMo(15);
     
-    cout << "Your account number is: " << newAccount.getAccountNumber() << endl;
+    //cout << "Your account number is: " << newAccount.getAccountNumber() << endl;
 
     cout<<"Deposits per month               = " << newAccount.getDepPerMo() << endl;
     newAccount.setWithPerMo(3);
@@ -63,7 +59,7 @@ int main(int argv, char** argc){
     
     Checking newChecking(500.00f,0.85f);
     
-    cout << "Your checking account number is: " << newChecking.getAccountNumber() << endl;
+    //cout << "Your checking account number is: " << newChecking.getAccountNumber() << endl;
     
     cout<<"Checking balance                            = $"<<newChecking.getBalance()<<endl;
     
@@ -98,7 +94,7 @@ int main(int argv, char** argc){
     cout << endl << endl;
     // Savings account
     Saving newSavings(300.00f, 8.7f);
-    cout << "Your saving account number is: " << newSavings.getAccountNumber() << endl;
+    //cout << "Your saving account number is: " << newSavings.getAccountNumber() << endl;
     
     cout <<"Savings balance                      = $"<<newSavings.getBalance()<<endl;
     

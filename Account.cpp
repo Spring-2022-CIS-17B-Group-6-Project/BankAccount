@@ -13,7 +13,7 @@
 
 using namespace std;
 
-unsigned int Account::count = 0;
+//unsigned int Account::count = 0;
 
 Account::Account(float balance, float aInterest) {
     this->balance = balance;            // Set balance
@@ -22,9 +22,9 @@ Account::Account(float balance, float aInterest) {
     this->withPerMo = 0;                // Init withdraws per month
     this->mCharges = 0.0;               // Init monthly charges
 
-    count++;                    // Keep track of each account
+    //count++;                    // Keep track of each account
 
-    this->accountNumber = count;
+    //this->accountNumber = count;
 }
 
 

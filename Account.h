@@ -9,7 +9,11 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
+#include <iostream>
+#include <iomanip>
+#include <string>
 
+using namespace std;
 
 class Account {
 
@@ -22,7 +26,7 @@ public:
 
     inline unsigned int getDepPerMo() const { return depPerMo; }
     inline unsigned int getWithPerMo() const { return withPerMo; }
-    inline unsigned int getAccountNumber() const { return accountNumber; }
+    //inline unsigned int getAccountNumber() const { return accountNumber; }
     inline float getBalance() const { return balance; }
     inline float getAInterest() const { return aInterest; }
     inline float getMCharges() const { return mCharges; }
@@ -44,8 +48,8 @@ private:
     float aInterest;                // Annual interest
     float mCharges;                 // Monthly Charges
 
-    unsigned int accountNumber;     // Account number
-
+    std::string accountNumber;      // Account number will have form
+                                    // Loc number-account type-count number-RNG 
 };
 
 
