@@ -22,9 +22,11 @@ public:
 
     inline unsigned int getDepPerMo() const { return depPerMo; }
     inline unsigned int getWithPerMo() const { return withPerMo; }
+    inline unsigned int getAccountNumber() const { return accountNumber };
     inline float getBalance() const { return balance; }
     inline float getAInterest() const { return aInterest; }
     inline float getMCharges() const { return mCharges; }
+    
 
     void setDepPerMo(unsigned int);
     void setWithPerMo(unsigned int);
