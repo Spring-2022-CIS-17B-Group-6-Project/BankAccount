@@ -48,7 +48,7 @@ private:
     float aInterest;                // Annual interest
     float mCharges;                 // Monthly Charges
 
-    std::string accountNumber;      // Account number will have form
+    //std::string accountNumber;      // Account number will have form
                                     // Loc number-account type-count number-RNG 
 };
 
