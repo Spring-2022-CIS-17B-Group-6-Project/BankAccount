@@ -18,6 +18,7 @@ using namespace std;
 class Account {
 
 public:
+    Account(){ }
     Account(float, float);
     virtual void deposit(float);
     virtual void withdraw(float);
