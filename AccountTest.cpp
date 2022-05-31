@@ -139,15 +139,5 @@ int main(int argv, char** argc){
     cout<<"\tDeposits per month  = " << newSavings.getDepPerMo()  << endl;
     cout<<"\tWithdraws per month = " << newSavings.getWithPerMo() << endl;
     
-    Account array[3];
-    
-    array[0] = newChecking;
-    array[1] = newSavings;
-    array[2] = newAccount;
-    
-    for(int i = 0; i < 3; i++){
-        cout << "balance = $" << array[i].getBalance() << endl;
-    }
-    
     return 0;
 }
