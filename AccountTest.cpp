@@ -122,7 +122,7 @@ void account(float balance, float aInterest) {
 //           CHECKING TEST MENU                      //
 //---------------------------------------------------//
 
-void checkAccount() {
+void checkAccount(Checking& newChecking) {
     //cout << "Your checking account number is: " << newChecking.getAccountNumber() << endl;
 
     cout << "Checking balance                            = $" << newChecking.getBalance() << endl;
@@ -159,7 +159,7 @@ void checkAccount() {
 
     // DEPOSIT IN CHECKING ACCOUNT
     void CheckingDeposit(Checking& newChecking){
-    
+    	newChecking.setTransactionType("Deposited");
         float depositAmnt;
         cout<<"Please enter the amount you would like to deposit: $";
         cin>>depositAmnt;
@@ -170,6 +170,7 @@ void checkAccount() {
 
     // WITHDRAW IN CHECKING ACCOUNT
     void CheckingWithdraw(Checking& newChecking){
+	newChecking.setTransactionType("Withdrew ");
         float minusAmount;
         cout<<"Please enter the amount you would like to withdraw: $";
         cin>>minusAmount;
