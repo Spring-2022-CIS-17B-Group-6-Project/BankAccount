@@ -9,18 +9,29 @@
 #ifndef SAVING_H
 #define SAVING_H
 
+#include <iostream>
+#include <string> 
+#include <vector>
 #include "Account.h"
+using namespace std;
+
 
 class Saving : public Account {
-private:
-    bool activeStatus;
-public:
-    Saving(float, float);
-    bool getActiveStatus() { return activeStatus; };
-
-    void withdraw(float);
-    void deposit(float);
-    void monthlyProc();
+    private:
+        bool activeStatus;
+        vector<string> transactionType;
+        vector<float> transactionValue;
+    public:
+        Saving(float, float);
+        bool getActiveStatus(){return activeStatus;};
+        
+        void withdraw(float); 
+        void deposit(float); 
+        void monthlyProc(); 
+        
+        void setTransactionType(const string&);
+        void setTransactionValue(float);
+        void PrintTranactionLog();
 };
 
 #endif /* SAVING_H */
