@@ -138,7 +138,7 @@ void checkAccount(Checking& newChecking) {
         cout << "Press 2 - WITHDRAW" << endl;
         cout << "Press 3 - CHARGES" << endl;
         cout << "Press 4 - TRANSACTION LOG" << endl;
-		cout << "Press 5 - BACK TO MAIN EXIT" << endl;
+	cout << "Press 5 - BACK TO MAIN EXIT" << endl;
         cout << endl;
         cout << "Please select an option: ";
         cin >> chooseChecking;
@@ -168,6 +168,8 @@ void checkAccount(Checking& newChecking) {
         cin>>depositAmnt;
 
         newChecking.deposit(depositAmnt);
+        newChecking.setTransactionValue(depositAmnt);
+
         cout <<"Checking balance after " <<  depositAmnt <<" deposit     = $"<<newChecking.getBalance()<<endl;
     }
 
@@ -179,6 +181,8 @@ void checkAccount(Checking& newChecking) {
         cin>>minusAmount;
 
         newChecking.withdraw(minusAmount);
+        newChecking.setTransactionValue(minusAmount);
+
         cout <<"Checking balance after " <<  minusAmount <<" withdraw     = $"<<newChecking.getBalance()<<endl;
     }
 
@@ -216,7 +220,7 @@ void savingAccount(Saving& newSavings) {
         cout << "Press 2 - WITHDRAW" << endl;
         cout << "Press 3 - CHARGES" << endl;
         cout << "Press 4 - TRANSACTION LOG" << endl;
-		cout << "Press 5 - BACK TO MAIN EXIT" << endl;
+	cout << "Press 5 - BACK TO MAIN EXIT" << endl;
         cout << endl;
         cout << "Please select an option: ";
         cin >> chooseSaving;
