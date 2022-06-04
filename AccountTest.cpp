@@ -28,6 +28,7 @@ void SavingCharges(Saving& );
 void SavingTransactionLog(Saving& );
 
 int main(int argv, char** argc){
+	Saving newSavings(0, 8.7f);
 	Checking newChecking(500.00f, 0.85f);
 
     float balance, aInterest;
@@ -53,7 +54,7 @@ int main(int argv, char** argc){
         switch(choose){
             case 1:account(balance, aInterest);break;
             case 2:checkAccount(newChecking);break;
-            case 3:savingAccount();break;
+            case 3:savingAccount(newSavings);break;
             default:cout<<"Exiting the Main Menu"<<endl;
         }
 
