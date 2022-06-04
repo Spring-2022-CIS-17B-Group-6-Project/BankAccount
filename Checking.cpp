@@ -11,6 +11,8 @@
 #include "Account.h"
 #include "Checking.h"
 #include <iostream>
+#include <string> 
+#include <vector>
 using namespace std;
 
 Checking::Checking(float balance, float aInterest) : Account(balance, aInterest) {
@@ -49,3 +51,22 @@ void Checking::monthlyProc() {                      // Montly fee of $5 plus $0.
     cout<<"\tDeposits per month  = " << Account::getDepPerMo()  << endl;
     cout<<"\tWithdraws per month = " << Account::getWithPerMo() << endl;
 }
+void Checking::setTransactionType(const string & type){
+    transactionType.push_back(type);
+}
+void Checking::setTransactionValue(float value){
+    transactionValue.push_back(value);
+}
+
+void Checking::PrintTranactionLog(){
+    cout << "********* CHECKING TRANSACTION LOG *********" << endl;
+    cout << endl;
+    cout << "      ___________________________________________" << endl;
+    for(int i = 0; i<transactionType.size(); i++){
+        cout << "      Transaction " << i + 1 << " : " << transactionType.at(i) << " $" << transactionValue.at(i) << endl;
+        cout << "      ___________________________________________" << endl;
+    }
+    cout << "      Total Balance : $" << Account::getBalance() << endl;
+    cout << "      ___________________________________________" << endl;
+}
+
