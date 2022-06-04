@@ -13,16 +13,23 @@
 
 // Function Prototypes
 void account(float, float);
-void checkAccount();
-void savingAccount();
+void checkAccount(Checking& );
+void savingAccount(Saving& );
 
 void CheckingDeposit(Checking& );
 void CheckingWithdraw(Checking& );
 void CheckingCharges(Checking& );
+void CheckingTransactionLog(Checking& );
 
 
+void SavingDeposit(Saving& );
+void SavingWithdraw(Saving& );
+void SavingCharges(Saving& );
+void SavingTransactionLog(Saving& );
 
 int main(int argv, char** argc){
+	Checking newChecking(500.00f, 0.85f);
+
     float balance, aInterest;
     
     balance = 500.00;
@@ -45,7 +52,7 @@ int main(int argv, char** argc){
         //Menu
         switch(choose){
             case 1:account(balance, aInterest);break;
-            case 2:checkAccount();break;
+            case 2:checkAccount(newChecking);break;
             case 3:savingAccount();break;
             default:cout<<"Exiting the Main Menu"<<endl;
         }
@@ -115,7 +122,6 @@ void account(float balance, float aInterest) {
 //---------------------------------------------------//
 
 void checkAccount() {
-    Checking newChecking(500.00f, 0.85f);
     //cout << "Your checking account number is: " << newChecking.getAccountNumber() << endl;
 
     cout << "Checking balance                            = $" << newChecking.getBalance() << endl;
@@ -185,53 +191,91 @@ void checkAccount() {
 //            SAVINGS TEST FUNCTIONS                 //
 //---------------------------------------------------//
 
-void savingAccount() {
-    cout << endl << endl;
-    // Savings account
-    Saving newSavings(300.00f, 8.7f);
-    //cout << "Your saving account number is: " << newSavings.getAccountNumber() << endl;
+
+void savingAccount(Saving& newSavings) {
+
+    cout << "Savings balance                            = $" << newSavings.getBalance() << endl;
+
+    int chooseSaving;  // Holds the option
+
+    //Initialize variables here
+    do {
+        //Display the menu
+        cout << endl;
+        cout << "*********** TEST SAVINGS ***********" << endl << endl;
+        cout << "Press 1 - DEPOSIT" << endl;
+        cout << "Press 2 - WITHDRAW" << endl;
+        cout << "Press 3 - CHARGES" << endl;
+        cout << "Press 4 - TRANSACTION LOG" << endl;
+		cout << "Press 5 - BACK TO MAIN EXIT" << endl;
+        cout << endl;
+        cout << "Please select an option: ";
+        cin >> chooseSaving;
+
+        //Menu
+        switch (chooseSaving) {
+        case 1:SavingDeposit(newSavings); break;
+        case 2:SavingWithdraw(newSavings); break;
+        case 3:SavingCharges(newSavings); break;
+        case 4:SavingTransactionLog(newSavings); break;
+        default:cout << "Exiting the Savings Menu" << endl;
+        }
+
+    } while (chooseSaving >= 1 && chooseSaving <= 4);
     
-    cout <<"Savings balance                      = $"<<newSavings.getBalance()<<endl;
-    
-    newSavings.deposit(300.00);
-    newSavings.deposit(150.00);
-    newSavings.deposit(50.00);
-    
-    cout<<"Savings Balance after $500 deposit   = $"<<newSavings.getBalance()<<endl;
-    
-    newSavings.withdraw(500.00);
-    newSavings.withdraw(500.00); // This should cause the account to go negative
-    
-    newSavings.withdraw(5.00);//Attempt to withdraw $5 from balance -$200
-    
-    newSavings.deposit(250.00);// Bring account back to $50
-    
-    cout<<"Account balance                      = $"<<newSavings.getBalance()<<endl;
-    
-    newSavings.withdraw(5.00);
-    cout<<"Account balance                      = $"<<newSavings.getBalance()<<endl;
-    
-    //cout <<"Checking before transfer = $"<<newChecking.getBalance()<<endl;
-    cout <<"Savings before transfer  = $"<<newSavings.getBalance()<<endl;
-    
-    
-    //newChecking.transfer(newSavings, 100.00);
-    
-    cout <<"Transfer $100.00 from checking into savings"<<endl;
-    //cout <<"Checking balance = $"<<newChecking.getBalance()<<endl;
-    cout <<"Saving balance   = $"<<newSavings.getBalance()<<endl;
-    
-    cout<<"Attempting to transfer $250.00 from savings to checking..."<<endl;
-    
-    //newSavings.transfer(newChecking,250.00);
-    
-    cout<<"Calling newSavings.monthlyProc()"<<endl;
-    newSavings.monthlyProc();
-    cout<<"New account info:" <<endl;
-    cout<<"\tBalance             = $" << fixed << setprecision(2) << newSavings.getBalance()  << endl;
-    cout<<"\tAnnual Interest     = " << newSavings.getAInterest() << "%" << endl;
-    cout<<"\tMonthly Charges     = $" << newSavings.getMCharges() << endl;
-    cout<<"\tDeposits per month  = " << newSavings.getDepPerMo()  << endl;
-    cout<<"\tWithdraws per month = " << newSavings.getWithPerMo() << endl;
     
 }
+
+    // DEPOSIT IN SAVINGS ACCOUNT
+    void SavingDeposit(Saving& newSavings){
+        newSavings.setTransactionType("Deposited");
+        float depositAmnt;
+        cout<<"Please enter the amount you would like to deposit: $";
+        cin>>depositAmnt;
+
+        newSavings.deposit(depositAmnt);
+        newSavings.setTransactionValue(depositAmnt);
+
+        cout <<"Savings balance after $" <<  depositAmnt <<" deposit     = $"<<newSavings.getBalance()<<endl;
+    }
+
+    // WITHDRAW IN SAVINGS ACCOUNT
+    void SavingWithdraw(Saving& newSavings){
+        newSavings.setTransactionType("Withdrew ");
+        float minusAmount;
+        cout<<"Please enter the amount you would like to withdraw: $";
+        cin>>minusAmount;
+
+        newSavings.withdraw(minusAmount);
+        newSavings.setTransactionValue(minusAmount);
+        
+        cout <<"Savings balance after $" <<  minusAmount <<" withdraw     = $"<<newSavings.getBalance()<<endl;
+    }
+
+    // BALANCE IN SAVINGS ACCOUNT
+    void SavingCharges(Saving& newSavings){
+        cout <<"Savings balance                            = $"<<newSavings.getBalance()<<endl;
+    
+        cout << "Monthly Charges     = $" << newSavings.getMCharges() << endl;
+        cout << "Deposits per month  = " << newSavings.getDepPerMo() << endl;
+        cout << "Withdraws per month = "<< newSavings.getWithPerMo() << endl;
+
+
+        cout<<"Calling newSavings.monthlyProc()"<<endl;
+        newSavings.monthlyProc();
+        cout<<"New account info:" <<endl;
+        cout<<"\tBalance             = $" << newSavings.getBalance()  << endl;
+        cout<<"\tAnnual Interest     = " << newSavings.getAInterest() << "%" << endl;
+        cout<<"\tMonthly Charges     = $" << newSavings.getMCharges() << endl;
+        cout<<"\tDeposits per month  = " << newSavings.getDepPerMo()  << endl;
+        cout<<"\tWithdraws per month = " << newSavings.getWithPerMo() << endl;
+    
+        cout << endl << endl;
+    }
+
+    // TRANSACTION LOG IN SAVINGS ACCOUNT
+    
+    void SavingTransactionLog(Saving& newSavings){
+        newSavings.PrintTranactionLog();
+    }
+    
