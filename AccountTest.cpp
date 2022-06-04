@@ -2,13 +2,25 @@
  * File: AccountTest.cpp
  * Author: Joseph Hernandez
  * Created on 05/25/22 10:05PM
- * Last modified on 
+ * Last modified on June 3, 2022 6:20PM by Liliana Darch
  * Purpose: Test the account class to ensure it functions properly
+ * 
  */
 
 #include "Account.h"
 #include "Checking.h"
 #include "Saving.h"
+
+// Function Prototypes
+void account(float, float);
+void checkAccount();
+void savingAccount();
+
+void CheckingDeposit(Checking& );
+void CheckingWithdraw(Checking& );
+void CheckingCharges(Checking& );
+
+
 
 int main(int argv, char** argc){
     float balance, aInterest;
@@ -16,6 +28,43 @@ int main(int argv, char** argc){
     balance = 500.00;
     aInterest = 2.5;
     
+    int choose;  // Holds the option the user selects
+
+    do{
+        //Display the menu
+        cout<<endl;
+        cout<<"*********** BANK ACCOUNT ***********"<<endl<<endl;
+        cout<<"Press 1 - ACCOUNT "<<endl;
+        cout<<"Press 2 - CHECKING ACCOUNT"<<endl;
+        cout<<"Press 3 - SAVINGS ACCOUNT"<<endl;
+        cout<<"Press 4 - EXIT BANK ACCOUNT PROGRAM"<<endl;
+        cout<<endl;
+        cout<<"Please select an option: ";
+        cin >> choose;
+        
+        //Menu
+        switch(choose){
+            case 1:account(balance, aInterest);break;
+            case 2:checkAccount();break;
+            case 3:savingAccount();break;
+            default:cout<<"Exiting the Main Menu"<<endl;
+        }
+
+    } while(choose>=1 && choose<=3);
+
+    return 0;
+}
+
+
+
+
+
+//---------------------------------------------------//
+//           ACCOUNT TEST FUNCTIONS                  //
+//---------------------------------------------------//
+
+
+void account(float balance, float aInterest) {
     Account newAccount(balance, aInterest);
     
     newAccount.deposit(500.00);
@@ -55,42 +104,102 @@ int main(int argv, char** argc){
     
     cout <<endl<<endl;
     
-    // Checking account test
-    
-    Checking newChecking(500.00f,0.85f);
-    
+}
+
+
+
+
+
+//---------------------------------------------------//
+//           CHECKING TEST MENU                      //
+//---------------------------------------------------//
+
+void checkAccount() {
+    Checking newChecking(500.00f, 0.85f);
     //cout << "Your checking account number is: " << newChecking.getAccountNumber() << endl;
+
+    cout << "Checking balance                            = $" << newChecking.getBalance() << endl;
+
+    int chooseChecking;  // Holds the option
+
+    //Initialize variables here
+    do {
+        //Display the menu
+        cout << endl;
+        cout << "*********** TEST CHECKING ***********" << endl << endl;
+        cout << "Press 1 - DEPOSIT" << endl;
+        cout << "Press 2 - WITHDRAW" << endl;
+        cout << "Press 3 - CHARGES" << endl;
+		cout << "Press 4 - BACK TO MAIN EXIT" << endl;
+        cout << endl;
+        cout << "Please select an option: ";
+        cin >> chooseChecking;
+
+        //Menu
+        switch (chooseChecking) {
+        case 1:CheckingDeposit(newChecking); break;
+        case 2:CheckingWithdraw(newChecking); break;
+        case 3:CheckingCharges(newChecking); break;
+        default:cout << "Exiting the Checking Menu" << endl;
+        }
+
+    } while (chooseChecking >= 1 && chooseChecking <= 3);
+}
+
+//---------------------------------------------------//
+//           CHECKING TEST FUNCTIONS                 //
+//---------------------------------------------------//
+
+    // DEPOSIT IN CHECKING ACCOUNT
+    void CheckingDeposit(Checking& newChecking){
     
-    cout<<"Checking balance                            = $"<<newChecking.getBalance()<<endl;
+        float depositAmnt;
+        cout<<"Please enter the amount you would like to deposit: $";
+        cin>>depositAmnt;
+
+        newChecking.deposit(depositAmnt);
+        cout <<"Checking balance after " <<  depositAmnt <<" deposit     = $"<<newChecking.getBalance()<<endl;
+    }
+
+    // WITHDRAW IN CHECKING ACCOUNT
+    void CheckingWithdraw(Checking& newChecking){
+        float minusAmount;
+        cout<<"Please enter the amount you would like to withdraw: $";
+        cin>>minusAmount;
+
+        newChecking.withdraw(minusAmount);
+        cout <<"Checking balance after " <<  minusAmount <<" withdraw     = $"<<newChecking.getBalance()<<endl;
+    }
+
+    // BALANCE IN CHECKING ACCOUNT
+    void CheckingCharges(Checking& newChecking){
+        cout <<"Checking balance                            = $"<<newChecking.getBalance()<<endl;
     
-    newChecking.deposit(250.00);
-    cout <<"Checking balance after $250.00 deposit      = $"<<newChecking.getBalance()<<endl;
+        cout << "Monthly Charges     = $" << newChecking.getMCharges() << endl;
+        cout << "Deposits per month  = " << newChecking.getDepPerMo() << endl;
+        cout << "Withdraws per month = "<< newChecking.getWithPerMo() << endl;
+
+
+        cout<<"Calling newChecking.monthlyProc()"<<endl;
+        newChecking.monthlyProc();
+        cout<<"New account info:" <<endl;
+        cout<<"\tBalance             = $" << newChecking.getBalance()  << endl;
+        cout<<"\tAnnual Interest     = " << newChecking.getAInterest() << "%" << endl;
+        cout<<"\tMonthly Charges     = $" << newChecking.getMCharges() << endl;
+        cout<<"\tDeposits per month  = " << newChecking.getDepPerMo()  << endl;
+        cout<<"\tWithdraws per month = " << newChecking.getWithPerMo() << endl;
     
-    newChecking.withdraw(100.00);
-    cout <<"Checking balance after $100.00 withdraw     = $"<<newChecking.getBalance()<<endl;
+        cout << endl << endl;
+    }
+
+	
+
     
-    newChecking.deposit(100.00);
-    newChecking.deposit(350.00);
-    
-    newChecking.withdraw(75.00);
-    newChecking.withdraw(125.00);
-    cout <<"Checking balance                            = $"<<newChecking.getBalance()<<endl;
-    
-    cout << "Monthly Charges     = $" << newChecking.getMCharges() << endl;
-    cout << "Deposits per month  = " << newChecking.getDepPerMo() << endl;
-    cout << "Withdraws per month = "<< newChecking.getWithPerMo() << endl;
-    
-    
-    
-    cout<<"Calling newChecking.monthlyProc()"<<endl;
-    newChecking.monthlyProc();
-    cout<<"New account info:" <<endl;
-    cout<<"\tBalance             = $" << newChecking.getBalance()  << endl;
-    cout<<"\tAnnual Interest     = " << newChecking.getAInterest() << "%" << endl;
-    cout<<"\tMonthly Charges     = $" << newChecking.getMCharges() << endl;
-    cout<<"\tDeposits per month  = " << newChecking.getDepPerMo()  << endl;
-    cout<<"\tWithdraws per month = " << newChecking.getWithPerMo() << endl;
-    
+//---------------------------------------------------//
+//            SAVINGS TEST FUNCTIONS                 //
+//---------------------------------------------------//
+
+void savingAccount() {
     cout << endl << endl;
     // Savings account
     Saving newSavings(300.00f, 8.7f);
@@ -116,19 +225,19 @@ int main(int argv, char** argc){
     newSavings.withdraw(5.00);
     cout<<"Account balance                      = $"<<newSavings.getBalance()<<endl;
     
-    cout <<"Checking before transfer = $"<<newChecking.getBalance()<<endl;
+    //cout <<"Checking before transfer = $"<<newChecking.getBalance()<<endl;
     cout <<"Savings before transfer  = $"<<newSavings.getBalance()<<endl;
     
     
-    newChecking.transfer(newSavings, 100.00);
+    //newChecking.transfer(newSavings, 100.00);
     
     cout <<"Transfer $100.00 from checking into savings"<<endl;
-    cout <<"Checking balance = $"<<newChecking.getBalance()<<endl;
+    //cout <<"Checking balance = $"<<newChecking.getBalance()<<endl;
     cout <<"Saving balance   = $"<<newSavings.getBalance()<<endl;
     
     cout<<"Attempting to transfer $250.00 from savings to checking..."<<endl;
     
-    newSavings.transfer(newChecking,250.00);
+    //newSavings.transfer(newChecking,250.00);
     
     cout<<"Calling newSavings.monthlyProc()"<<endl;
     newSavings.monthlyProc();
@@ -139,5 +248,4 @@ int main(int argv, char** argc){
     cout<<"\tDeposits per month  = " << newSavings.getDepPerMo()  << endl;
     cout<<"\tWithdraws per month = " << newSavings.getWithPerMo() << endl;
     
-    return 0;
 }
