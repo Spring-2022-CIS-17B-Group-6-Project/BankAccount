@@ -130,14 +130,15 @@ void checkAccount(Checking& newChecking) {
     int chooseChecking;  // Holds the option
 
     //Initialize variables here
-    do {
+        do {
         //Display the menu
         cout << endl;
         cout << "*********** TEST CHECKING ***********" << endl << endl;
         cout << "Press 1 - DEPOSIT" << endl;
         cout << "Press 2 - WITHDRAW" << endl;
         cout << "Press 3 - CHARGES" << endl;
-		cout << "Press 4 - BACK TO MAIN EXIT" << endl;
+        cout << "Press 4 - TRANSACTION LOG" << endl;
+		cout << "Press 5 - BACK TO MAIN EXIT" << endl;
         cout << endl;
         cout << "Please select an option: ";
         cin >> chooseChecking;
@@ -147,10 +148,12 @@ void checkAccount(Checking& newChecking) {
         case 1:CheckingDeposit(newChecking); break;
         case 2:CheckingWithdraw(newChecking); break;
         case 3:CheckingCharges(newChecking); break;
+        case 4:CheckingTransactionLog(newChecking); break;
+
         default:cout << "Exiting the Checking Menu" << endl;
         }
 
-    } while (chooseChecking >= 1 && chooseChecking <= 3);
+    } while (chooseChecking >= 1 && chooseChecking <= 4);
 }
 
 //---------------------------------------------------//
@@ -185,7 +188,11 @@ void checkAccount(Checking& newChecking) {
         newChecking.monthlyProc();
         cout << endl << endl;
     }
+    // TRANSACTION LOG IN SAVINGS ACCOUNT
 
+    void CheckingTransactionLog(Checking& newChecking){
+        newChecking.PrintTranactionLog();
+    }
 	
 
     
