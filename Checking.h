@@ -10,13 +10,24 @@
 #ifndef CHECKING_H
 #define CHECKING_H
 
+#include <iostream>
+#include <string> 
+#include <vector>
 #include "Account.h"
+using namespace std;
+
 
 class  Checking : public Account{
+    private: 
+        vector<string> transactionType;
+        vector<float> transactionValue;
     public:
         Checking(float, float);
         void withdraw (float);
         void monthlyProc();
+        void setTransactionType(const string&);
+        void setTransactionValue(float);
+        void PrintTranactionLog();
 };
 
 #endif /* CHECKING_H */
