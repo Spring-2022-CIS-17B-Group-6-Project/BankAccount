@@ -2,8 +2,10 @@
  * File:   Checking.cpp
  * Author: Liliana Darch
  * Created on May 25, 2022, 10:00 AM
- * Last modified on May 25, 2022 11:19PM by Joseph Hernandez
+ * Last modified on June 3, 2022 4:00PM by Liliana Darch
  * Purpose: Checking class implementation
+ * 
+ * g++ -o ./a Account.h Account.cpp Saving.h Saving.cpp Checking.h Checking.cpp AccountTest.cpp
  */
 
 #include "Account.h"
@@ -26,12 +28,6 @@ void Checking::withdraw(float minusAmount) {
         if (Account::getBalance() < 0) {                           // Check if the balance is negative
             cout << "You owe $" << Account::getBalance() << "to the bank" << endl;
         }
-    }
-
-    else if (minusAmount <= 0) {                       // Check if customer is going to withdraw a negative number
-        cout << "Please enter the amount you would like to withdraw." << endl;
-        // I will adding input validation here to make sure that
-        // user doesn't input a negative number
     }
 
     else {                                          // Complete the transaction 
