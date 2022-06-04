@@ -22,7 +22,7 @@ Saving::Saving(float balance, float aInterest) : Account(balance, aInterest) {
 void Saving::withdraw(float withdrawAmnt) {
     if (!activeStatus) {
         cout << "Your account balance is $" << Account::getBalance() << "\n"
-            << "Please deposit more money before withdrawing." << endl;
+            << "Your account is inactive under $25. Please deposit more money before withdrawing." << endl;
     }
     else {
         Account::withdraw(withdrawAmnt);
@@ -51,4 +51,23 @@ void Saving::monthlyProc() {
 
     // Check if account is below $25. If balance < $25, then activeStatus = false
     if (Account::getBalance() < 25) activeStatus = false;
+}
+
+void Saving::setTransactionType(const string & type){
+    transactionType.push_back(type);
+}
+void Saving::setTransactionValue(float value){
+    transactionValue.push_back(value);
+}
+
+void Saving::PrintTranactionLog(){
+    cout << "********* SAVINGS TRANSACTION LOG *********" << endl;
+    cout << endl;
+    cout << "      ___________________________________________" << endl;
+    for(int i = 0; i<transactionType.size(); i++){
+        cout << "      Transaction " << i + 1 << " : " << transactionType.at(i) << " $" << transactionValue.at(i) << endl;
+        cout << "      ___________________________________________" << endl;
+    }
+    cout << "      Total Balance : $" << Account::getBalance() << endl;
+    cout << "      ___________________________________________" << endl;
 }
