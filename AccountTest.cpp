@@ -173,22 +173,8 @@ void checkAccount() {
 
     // BALANCE IN CHECKING ACCOUNT
     void CheckingCharges(Checking& newChecking){
-        cout <<"Checking balance                            = $"<<newChecking.getBalance()<<endl;
-    
-        cout << "Monthly Charges     = $" << newChecking.getMCharges() << endl;
-        cout << "Deposits per month  = " << newChecking.getDepPerMo() << endl;
-        cout << "Withdraws per month = "<< newChecking.getWithPerMo() << endl;
-
-
-        cout<<"Calling newChecking.monthlyProc()"<<endl;
+        cout<<endl;
         newChecking.monthlyProc();
-        cout<<"New account info:" <<endl;
-        cout<<"\tBalance             = $" << newChecking.getBalance()  << endl;
-        cout<<"\tAnnual Interest     = " << newChecking.getAInterest() << "%" << endl;
-        cout<<"\tMonthly Charges     = $" << newChecking.getMCharges() << endl;
-        cout<<"\tDeposits per month  = " << newChecking.getDepPerMo()  << endl;
-        cout<<"\tWithdraws per month = " << newChecking.getWithPerMo() << endl;
-    
         cout << endl << endl;
     }
 

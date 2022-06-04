@@ -36,8 +36,16 @@ void Checking::withdraw(float minusAmount) {
 }
 
 void Checking::monthlyProc() {                      // Montly fee of $5 plus $0.10 per withdrawal 
-    cout << "Monthly Services charges" << endl;
+
     Account::setMCharges(Account::getMCharges() + 5.00f + (Account::getWithPerMo() * 0.10f));
-    cout << "$" << Account::getMCharges() << endl;
-    Account::monthlyProc();
+    cout<<"Your total monthly service charges: $" << Account::getMCharges() << endl;
+    cout<<"Monthly fee of $5 plus $"<< (Account::getWithPerMo() * 0.10f) <<" for the total of "<<Account::getWithPerMo()<<" withdraws for this month."<<endl;
+    
+
+    cout<<"New account info:" <<endl;
+    cout<<"\tBalance             = $" << Account::getBalance()  << endl;
+    cout<<"\tAnnual Interest     = " << Account::getAInterest() << "%" << endl;
+    cout<<"\tMonthly Charges     = $" << Account::getMCharges() << endl;
+    cout<<"\tDeposits per month  = " << Account::getDepPerMo()  << endl;
+    cout<<"\tWithdraws per month = " << Account::getWithPerMo() << endl;
 }
