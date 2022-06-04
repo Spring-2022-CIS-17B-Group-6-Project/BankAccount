@@ -10,6 +10,8 @@
 #include "Account.h"
 #include "Saving.h"
 #include <iostream>
+#include <string> 
+#include <vector>
 using namespace std;
 
 Saving::Saving(float balance, float aInterest) : Account(balance, aInterest) {
