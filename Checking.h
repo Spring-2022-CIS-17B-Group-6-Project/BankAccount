@@ -24,6 +24,7 @@ class  Checking : public Account{
     public:
         Checking(float, float);
         void withdraw (float);
+        void deposit (float);
         void monthlyProc();
         void setTransactionType(const string&);
         void setTransactionValue(float);
