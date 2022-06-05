@@ -121,6 +121,8 @@ void Account::printAccountNumber(){
 }
 
 void Account::printTransactions(){
+    printAccountNumber();
+    cout<<"Statement:"<<endl;
     for(auto ta : transactionList){
         cout<<setw(12)<<ta.t_Type<<setw(8)<<"$"<<ta.amount<<endl;
     }
