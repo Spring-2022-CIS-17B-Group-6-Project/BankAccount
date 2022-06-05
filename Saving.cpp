@@ -14,6 +14,7 @@ Saving::Saving(){
     count++;
     activeStatus = false;
     setAccountNumber();
+    Account::setAccountType("Saving");
 }
 
 Saving::Saving(float balance, float aInterest) : Account(balance, aInterest) {
@@ -23,6 +24,7 @@ Saving::Saving(float balance, float aInterest) : Account(balance, aInterest) {
         activeStatus = true;
     }
     setAccountNumber();
+    Account::setAccountType("Saving");
 }
 
 void Saving::withdraw(float withdrawAmnt) {

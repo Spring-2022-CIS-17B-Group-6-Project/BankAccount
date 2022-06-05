@@ -19,12 +19,10 @@ int main(int argv, char** argc){
     Saving saving1;
     Saving saving2;
     
-    
     newChecking.printAccountNumber();
-    checking2.printAccountNumber();
-    
-    saving1.printAccountNumber();
-    saving2.printAccountNumber();
+    newChecking.deposit(500.00);
+    newChecking.withdraw(100.00);
+    newChecking.printTransactions();
     
     return 0;
 }

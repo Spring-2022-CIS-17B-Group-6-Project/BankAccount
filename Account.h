@@ -7,10 +7,9 @@
  */
 #include <iostream>
 #include <iomanip>
-#include <string>
+#include <list>
 
-using namespace std;
-
+#include "Transactions.h"
 
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
@@ -32,6 +31,7 @@ public:
     inline float getAInterest() const { return aInterest; }
     inline float getMCharges() const { return mCharges; }
     inline string getAcctNo() const {return acctNo;}
+    inline string getAcctType() const {return accountType;}
     inline unsigned int getAccountNum() {return accountNumber;}
 
     void setDepPerMo(unsigned int);
@@ -43,10 +43,12 @@ public:
     void setAccountNumber (int);
     void setAcctNo(string);
     
-    void PrintTranactionLog();
+    void setAccountType(string);
     
     void printAccountNumber();
-
+    void printTransactions();
+    
+    
 private:
     void calcInt();
     unsigned int depPerMo;          // Deposits per month
@@ -55,11 +57,13 @@ private:
     float aInterest;                // Annual interest
     float mCharges;                 // Monthly Charges
     
+    string accountType;
+    
     unsigned int accountNumber;
     string acctNo;
     
-    void setTransactionType(const string&);
-    void setTransactionValue(const float);
+    list<Transactions> transactionList;
+
     
 };
 

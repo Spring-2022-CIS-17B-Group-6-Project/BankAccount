@@ -10,6 +10,8 @@
 #include "Account.h"
 
 Account::Account(){
+    this->balance = 0.0;
+    this->aInterest = 0.0;
     this->depPerMo = 0;                 // Init deposits per month
     this->withPerMo = 0;                // Init withdraws per month
     this->mCharges = 0.0;               // Init monthly charges
@@ -29,11 +31,21 @@ Account::Account(float balance, float aInterest) {
 
 
 void Account::deposit(float deposit) {
+    Transactions transaction;
+    transaction.amount = deposit;
+    transaction.t_Type = "Deposit ";
+    transactionList.push_back(transaction);
+    
     balance += deposit;                 // Add deposit to balance
     depPerMo++;                         // Increment number of deposits per month
 }
 
 void Account::withdraw(float withdraw) {
+    Transactions transaction;
+    transaction.amount = withdraw;
+    transaction.t_Type = "Withdraw";
+    transactionList.push_back(transaction);
+    
     balance -= withdraw;                // Subtract withdraw from balance
     withPerMo++;                        // Increment number of withdraws per month
 }
@@ -99,19 +111,17 @@ void Account::setAcctNo(string acctNo){
     this->acctNo = acctNo;
 }
 
-void Account::setTransactionType(const string& transType){
-    
-}
-
-void setTransactionValue(const float amount){
-    
-}
-
-void PrintTranactionLog(){
-    
+void Account::setAccountType(string accountType){
+    this->accountType = accountType;
 }
 
 void Account::printAccountNumber(){
     cout<<getAcctNo()<<endl;
-    cout<<getAccountNum()<<endl;
+    cout<<"Account Number: "<<getAccountNum()<<endl;
+}
+
+void Account::printTransactions(){
+    for(auto ta : transactionList){
+        cout<<setw(12)<<ta.t_Type<<" $"<<ta.amount<<endl;
+    }
 }

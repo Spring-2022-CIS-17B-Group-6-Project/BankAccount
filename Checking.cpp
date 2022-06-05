@@ -16,11 +16,13 @@ int Checking::count = 0;
 Checking::Checking() : Account(){
     count++;
     setAccountNumber();
+    Account::setAccountType("Checking");
 }
 
 Checking::Checking(float balance, float aInterest) : Account(balance, aInterest) {
     count++;
     setAccountNumber();
+    Account::setAccountType("Checking");
 }
 
 
