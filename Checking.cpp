@@ -36,6 +36,11 @@ void Checking::withdraw(float minusAmount) {
         Account::withdraw(minusAmount);
     }
 }
+void Checking::deposit(float deposit){
+	setTransactionType("Deposit");
+	setTransactionValue(deposit);
+	Account::deposit(deposit);
+}
 
 void Checking::monthlyProc() {                      // Montly fee of $5 plus $0.10 per withdrawal 
 
