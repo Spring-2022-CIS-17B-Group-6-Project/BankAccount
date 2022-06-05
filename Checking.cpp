@@ -33,6 +33,8 @@ void Checking::withdraw(float minusAmount) {
     }
 
     else {                                          // Complete the transaction 
+	setTransactionType("Withdrew ");
+        setTransactionValue(withdrawAmnt);
         Account::withdraw(minusAmount);
     }
 }
