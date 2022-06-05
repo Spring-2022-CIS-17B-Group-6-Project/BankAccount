@@ -27,6 +27,8 @@ void Saving::withdraw(float withdrawAmnt) {
             << "Your account is inactive under $25. Please deposit more money before withdrawing." << endl;
     }
     else {
+        setTransactionType("Withdrew ");
+        setTransactionValue(withdrawAmnt);
         Account::withdraw(withdrawAmnt);
         if (Account::getBalance() < 0) {
             activeStatus = false;
@@ -38,7 +40,8 @@ void Saving::deposit(float depositAmnt) {
     // Check if account is not active, if not active and depositAmnt >= 25
     // then acvtiveStatus = true;
     if (!activeStatus && depositAmnt >= 25) activeStatus = true;
-
+    setTransactionType("Deposited");
+    setTransactionValue(depositAmnt);
     Account::deposit(depositAmnt);
 
 
