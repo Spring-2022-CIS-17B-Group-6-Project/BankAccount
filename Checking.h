@@ -7,28 +7,31 @@
  * Purpose: Checking class description
  */
 
+#include "Account.h"
+#include "AccountNumber.h"
+
+
+
 #ifndef CHECKING_H
 #define CHECKING_H
 
-#include <iostream>
-#include <string> 
-#include <vector>
-#include "Account.h"
-using namespace std;
 
 
-class  Checking : public Account{
-    private: 
-        vector<string> transactionType;
-        vector<float> transactionValue;
+class  Checking : public Account{      
+    private:
+    void setAccountNumber();
+    
+    static int count;
+    
     public:
+        Checking();
         Checking(float, float);
         void withdraw (float);
         void deposit (float);
         void monthlyProc();
-        void setTransactionType(const string&);
-        void setTransactionValue(float);
-        void PrintTranactionLog();
+        
+        inline string getAcctNum() {return Account::getAcctNo();}
+        
 };
 
 #endif /* CHECKING_H */

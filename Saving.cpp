@@ -6,19 +6,23 @@
  * Purpose: Savings class implementation
  */
 
-
-#include "Account.h"
 #include "Saving.h"
-#include <iostream>
-#include <string> 
-#include <vector>
-using namespace std;
+
+int Saving::count = 0;
+
+Saving::Saving(){
+    count++;
+    activeStatus = false;
+    setAccountNumber();
+}
 
 Saving::Saving(float balance, float aInterest) : Account(balance, aInterest) {
+    count++;
     activeStatus = false;
     if (Account::getBalance() >= 25) {
         activeStatus = true;
     }
+    setAccountNumber();
 }
 
 void Saving::withdraw(float withdrawAmnt) {
@@ -27,8 +31,6 @@ void Saving::withdraw(float withdrawAmnt) {
             << "Your account is inactive under $25. Please deposit more money before withdrawing." << endl;
     }
     else {
-        setTransactionType("Withdrew ");
-        setTransactionValue(withdrawAmnt);
         Account::withdraw(withdrawAmnt);
         if (Account::getBalance() < 0) {
             activeStatus = false;
@@ -36,12 +38,11 @@ void Saving::withdraw(float withdrawAmnt) {
         }
     }
 }
+
 void Saving::deposit(float depositAmnt) {
     // Check if account is not active, if not active and depositAmnt >= 25
     // then acvtiveStatus = true;
     if (!activeStatus && depositAmnt >= 25) activeStatus = true;
-    setTransactionType("Deposited");
-    setTransactionValue(depositAmnt);
     Account::deposit(depositAmnt);
 
 
@@ -58,21 +59,7 @@ void Saving::monthlyProc() {
     if (Account::getBalance() < 25) activeStatus = false;
 }
 
-void Saving::setTransactionType(const string & type){
-    transactionType.push_back(type);
-}
-void Saving::setTransactionValue(float value){
-    transactionValue.push_back(value);
-}
-
-void Saving::PrintTranactionLog(){
-    cout << "********* SAVINGS TRANSACTION LOG *********" << endl;
-    cout << endl;
-    cout << "      ___________________________________________" << endl;
-    for(int i = 0; i<transactionType.size(); i++){
-        cout << "      Transaction " << i + 1 << " : " << transactionType.at(i) << " $" << transactionValue.at(i) << endl;
-        cout << "      ___________________________________________" << endl;
-    }
-    cout << "      Total Balance : $" << Account::getBalance() << endl;
-    cout << "      ___________________________________________" << endl;
+void Saving::setAccountNumber(){
+    Account::setAcctNo("Saving" + to_string(count));
+    Account::setAccountNumber(AccountNumber::hashNumber(getAcctNo()));
 }

@@ -1,24 +1,24 @@
-/*
+ /*
  * File:   Account.h
  * Author: Joseph Hernandez
  * Created on May 18, 2022, 10:37 PM
  * Last modified on 05/25/2022 12:15PM
  * Purpose: Account abstract class description
  */
-
-#ifndef ACCOUNT_H
-#define ACCOUNT_H
-
 #include <iostream>
 #include <iomanip>
 #include <string>
 
 using namespace std;
 
+
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
 class Account {
 
 public:
-    Account(){ }
+    Account();
     Account(float, float);
     virtual void deposit(float);
     virtual void withdraw(float);
@@ -31,15 +31,21 @@ public:
     inline float getBalance() const { return balance; }
     inline float getAInterest() const { return aInterest; }
     inline float getMCharges() const { return mCharges; }
-    
+    inline string getAcctNo() const {return acctNo;}
+    inline unsigned int getAccountNum() {return accountNumber;}
 
     void setDepPerMo(unsigned int);
     void setWithPerMo(unsigned int);
     void setBalance(float);
     void setAInterest(float);
     void setMCharges(float);
-
-    static unsigned int count;
+    
+    void setAccountNumber (int);
+    void setAcctNo(string);
+    
+    void PrintTranactionLog();
+    
+    void printAccountNumber();
 
 private:
     void calcInt();
@@ -48,9 +54,13 @@ private:
     float balance;                  // Balance of account
     float aInterest;                // Annual interest
     float mCharges;                 // Monthly Charges
-
-    //std::string accountNumber;      // Account number will have form
-                                    // Loc number-account type-count number-RNG 
+    
+    unsigned int accountNumber;
+    string acctNo;
+    
+    void setTransactionType(const string&);
+    void setTransactionValue(const float);
+    
 };
 
 

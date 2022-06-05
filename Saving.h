@@ -5,23 +5,21 @@
  * Last modified on 05/27/2022 12:15PM
  * Purpose: Account abstract class description
  */
+#include "Account.h"
+#include "AccountNumber.h"
 
 #ifndef SAVING_H
 #define SAVING_H
 
-#include <iostream>
-#include <string> 
-#include <vector>
-#include "Account.h"
-using namespace std;
-
-
-class Saving : public Account {
+class Saving : public Account{
     private:
-        bool activeStatus;
-        vector<string> transactionType;
-        vector<float> transactionValue;
+    bool activeStatus;
+    void setAccountNumber();
+    
+    static int count;
+    
     public:
+        Saving();
         Saving(float, float);
         bool getActiveStatus(){return activeStatus;};
         
@@ -32,6 +30,7 @@ class Saving : public Account {
         void setTransactionType(const string&);
         void setTransactionValue(float);
         void PrintTranactionLog();
+        
 };
 
 #endif /* SAVING_H */

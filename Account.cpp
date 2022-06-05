@@ -7,13 +7,13 @@
  */
 
 
-
 #include "Account.h"
-#include <iostream>
 
-using namespace std;
-
-//unsigned int Account::count = 0;
+Account::Account(){
+    this->depPerMo = 0;                 // Init deposits per month
+    this->withPerMo = 0;                // Init withdraws per month
+    this->mCharges = 0.0;               // Init monthly charges
+}
 
 Account::Account(float balance, float aInterest) {
     this->balance = balance;            // Set balance
@@ -69,6 +69,8 @@ void Account::calcInt() {
     balance += mInterest;
 }
 
+
+
 void Account::setDepPerMo(unsigned int depPerMo) {
     this->depPerMo = depPerMo;
 }
@@ -87,4 +89,29 @@ void Account::setAInterest(float aInterest) {
 
 void Account::setMCharges(float mCharges) {
     this->mCharges = mCharges;
+}
+
+void Account::setAccountNumber(int accountNumber){
+    this->accountNumber = accountNumber;
+}
+
+void Account::setAcctNo(string acctNo){
+    this->acctNo = acctNo;
+}
+
+void Account::setTransactionType(const string& transType){
+    
+}
+
+void setTransactionValue(const float amount){
+    
+}
+
+void PrintTranactionLog(){
+    
+}
+
+void Account::printAccountNumber(){
+    cout<<getAcctNo()<<endl;
+    cout<<getAccountNum()<<endl;
 }
