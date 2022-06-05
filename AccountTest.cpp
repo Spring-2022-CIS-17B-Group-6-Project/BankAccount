@@ -162,26 +162,22 @@ void checkAccount(Checking& newChecking) {
 
     // DEPOSIT IN CHECKING ACCOUNT
     void CheckingDeposit(Checking& newChecking){
-    	newChecking.setTransactionType("Deposited");
         float depositAmnt;
         cout<<"Please enter the amount you would like to deposit: $";
         cin>>depositAmnt;
 
         newChecking.deposit(depositAmnt);
-        newChecking.setTransactionValue(depositAmnt);
 
         cout <<"Checking balance after " <<  depositAmnt <<" deposit     = $"<<newChecking.getBalance()<<endl;
     }
 
     // WITHDRAW IN CHECKING ACCOUNT
     void CheckingWithdraw(Checking& newChecking){
-	newChecking.setTransactionType("Withdrew ");
         float minusAmount;
         cout<<"Please enter the amount you would like to withdraw: $";
         cin>>minusAmount;
 
         newChecking.withdraw(minusAmount);
-        newChecking.setTransactionValue(minusAmount);
 
         cout <<"Checking balance after " <<  minusAmount <<" withdraw     = $"<<newChecking.getBalance()<<endl;
     }
@@ -241,26 +237,22 @@ void savingAccount(Saving& newSavings) {
 
     // DEPOSIT IN SAVINGS ACCOUNT
     void SavingDeposit(Saving& newSavings){
-        newSavings.setTransactionType("Deposited");
         float depositAmnt;
         cout<<"Please enter the amount you would like to deposit: $";
         cin>>depositAmnt;
 
         newSavings.deposit(depositAmnt);
-        newSavings.setTransactionValue(depositAmnt);
 
         cout <<"Savings balance after $" <<  depositAmnt <<" deposit     = $"<<newSavings.getBalance()<<endl;
     }
 
     // WITHDRAW IN SAVINGS ACCOUNT
     void SavingWithdraw(Saving& newSavings){
-        newSavings.setTransactionType("Withdrew ");
         float minusAmount;
         cout<<"Please enter the amount you would like to withdraw: $";
         cin>>minusAmount;
 
         newSavings.withdraw(minusAmount);
-        newSavings.setTransactionValue(minusAmount);
         
         cout <<"Savings balance after $" <<  minusAmount <<" withdraw     = $"<<newSavings.getBalance()<<endl;
     }
