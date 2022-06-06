@@ -7,7 +7,7 @@
 #include "NewAccountMenu.h"
 
 void NewAccountMenu::displayHeader(){
-    cout<<setw(30)<<"Create Account Menu:"<<endl;
+    cout<<setw(34)<<"Create Account Menu:"<<endl;
 }
 
 Account* NewAccountMenu::createAccount(){
@@ -24,9 +24,9 @@ Account* NewAccountMenu::createAccount(){
         case 1:
         {// Logic for creating new checking account
             newChecking = new Checking();
-            cout<<"Enter initial deposit amount: ";
+            cout<<setw(36)<<"Enter initial amount: ";
             cin>>balance;
-            cout<<"Enter annual interest rate: ";
+            cout<<setw(42)<<"Enter annual interest rate: ";
             cin>>interest;
             newChecking->setBalance(balance);
             newChecking->setAInterest(interest);
@@ -36,9 +36,9 @@ Account* NewAccountMenu::createAccount(){
         case 2:
             // Logic for creating new saving account
             newSaving = new Saving();
-            cout<<"Enter initial balance: ";
+            cout<<setw(36)<<"Enter initial amount: ";
             cin>>balance;
-            cout<<"Enter annual interest rate: ";
+            cout<<setw(42)<<"Enter annual interest rate: ";
             cin>>interest;
             newSaving->setBalance(balance);
             newSaving->setAInterest(interest);
@@ -54,9 +54,9 @@ Account* NewAccountMenu::createAccount(){
 int NewAccountMenu::getOptions(){
     int choice;
     
-    cout<<setw(46)<<"1. Create Checking Account"<<endl;
-    cout<<setw(43)<<"2. Create Saving Accout"<<endl;
-    cout<<setw(45)<<"3. Exit Back to Main Menu"<<endl;
+    cout<<setw(45)<<"1. Create Checking Account"<<endl;
+    cout<<setw(42)<<"2. Create Saving Accout"<<endl;
+    cout<<setw(44)<<"3. Exit Back to Main Menu"<<endl;
     cin>>choice;
 
     return choice;

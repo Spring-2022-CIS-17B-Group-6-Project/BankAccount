@@ -66,21 +66,22 @@ loop:
     }catch(int e){
         cout<<setw(28)<<"No Account created"<<endl;
     }
-    cout<<setw(49)<<"Would you like to create a new account?"<<endl;
-    cout<<setw(41)<<"1. Create new account"<<endl;
-    cout<<setw(40)<<"2. Back to main menu"<<endl;
+    cout<<endl;
+    cout<<setw(53)<<"Would you like to create a new account?"<<endl;
+    cout<<setw(40)<<"1. Create new account"<<endl;
+    cout<<setw(39)<<"2. Back to main menu"<<endl;
     cin>>choice;
     if(choice == 1){
         goto loop;
     }
     else{
-        cout<<setw(33)<< "Exiting to main menu..."<<endl;
+        cout<<setw(61)<< "Exiting to main menu..."<<endl<<endl;
     }
 }
 
 void printStatements(vector<Account*>accounts){
     for(auto acct : accounts){
         acct->printTransactions();
-        cout<<"Ending Balance: $"<<acct->getBalance()<<endl;
+        cout<<"Ending Balance: $"<<acct->getBalance()<<endl<<endl;
     }
 }
