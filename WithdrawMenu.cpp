@@ -15,8 +15,8 @@ void WithdrawMenu::makeWithdraw(vector<Account*> &accounts){
     
     float amount;
     int index;
-    cout<<"Select from accounts:"<<endl;
     printAccounts(accounts);
+    cout<<"Select account: ";
     cin>>index;
     index--;
     cout<<"Enter withdraw amount: ";

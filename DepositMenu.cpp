@@ -17,11 +17,11 @@ void DepositMenu::makeDeposit(vector<Account*> &accounts){
     displayHeader();
     float amount;
     int index;
-    cout<<"Select from accounts:"<<endl;
     printAccounts(accounts);
+    cout<<"Select account: ";
     cin>>index;
     index--;
-    cout<<"Enter deposit amount: ";
+    cout<<"Enter deposit amount: $";
     cin>>amount;
     // Branch statement for which account to make withdraw from
     if(accounts[index]->getAcctType() == "Checking"){
