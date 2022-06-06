@@ -7,45 +7,40 @@
  * 
  */
 
+#include <vector>
+
 #include "Checking.h"
 #include "Saving.h"
-#include <vector>
-#include <c++/bits/stl_vector.h>
+#include "MainMenu.h"
+
 
 int main(int argv, char** argc){
     // Create a map to hold accounts
     vector<Account*> accounts;
+    int mMenuChoice;
     
-    
-    // Start menu displaying options for opening a checking or savings account
-    Checking newChecking;
-    Checking checking2;
-    Saving saving1;
-    Saving saving2;
-    
-    accounts.push_back(&newChecking);
-    accounts.push_back(&checking2);
-    accounts.push_back(&saving1);
-    accounts.push_back(&saving2);
-
-    newChecking.deposit(500.00);
-    newChecking.withdraw(100.00);
-    
-    
-    checking2.deposit(200.00);
-    checking2.withdraw(100.00);
-    checking2.withdraw(10.00);
-    checking2.withdraw(20.00);
-    checking2.deposit(150.00);
-    checking2.deposit(25.00);
-    
-    
-    saving1.deposit(500.00);
-    saving1.withdraw(100.00);
+    // Display Main Menu
+    MainMenu mainMenu;
     
 
-    for(const auto& acct : accounts){
-        acct->printTransactions();
+        try{
+            mMenuChoice = mainMenu.getOptions();
+            if(mMenuChoice!=1 && mMenuChoice !=2 && mMenuChoice != 3 
+                    && mMenuChoice != 4 && mMenuChoice != 5){
+                throw mMenuChoice;
+            }
+        }catch(int e){
+            cout<<"ERROR: Incorrect Selection. Exiting Program..."<<endl;
+            return 0;
+        }
+    
+    
+    switch(mMenuChoice){
+        case 1: cout<<"Open Account Menu..."<<endl;break;// Open Account Menu
+        case 2: cout<<"Deposit Menu"<<endl;break;// Deposit to account menu
+        case 3: cout<<"Withdraw Menu"<<endl;break;// Withdraw from account menu
+        case 4: cout<<"Print Transactions Menu"<<endl;break;// Print Transactions
+        default: cout<<"Do nothing... Exiting..."<<endl;// Do nothing to end application(goto?)
     }
     
     return 0;
