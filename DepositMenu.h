@@ -18,7 +18,7 @@ class DepositMenu : public Menu{
         void makeDeposit(vector<Account*>&);
     private:
         void printAccounts(vector<Account*>);
-        int count = 0;
+        int count;
 };
 
 #endif /* DEPOSITMENU_H */

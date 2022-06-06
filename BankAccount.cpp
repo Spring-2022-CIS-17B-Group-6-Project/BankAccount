@@ -122,7 +122,8 @@ void withdrawMenu(vector<Account*> accounts){
         cout<<setw(51)<<"Would you like to make a new withdraw?"<<endl;
         cout<<setw(40)<<"1. Make new withdraw"<<endl;
         cout<<setw(40)<<"2. Back to Main Menu"<<endl;
-        
+        cout<<endl;
+        cout<<setw(26)<<"Selection: ";
         cin>>choice;
         if(choice == 1) goto withdraw_start;
     }

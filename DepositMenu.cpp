@@ -22,6 +22,7 @@ void DepositMenu::makeDeposit(vector<Account*> &accounts){
     int exception = 100;
     float amount;
     int index;
+    count=0;
     
     displayHeader();
     

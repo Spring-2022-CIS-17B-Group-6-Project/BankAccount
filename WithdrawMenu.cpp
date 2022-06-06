@@ -19,6 +19,7 @@ void WithdrawMenu::makeWithdraw(vector<Account*> &accounts){
     int exception = 100;
     float amount;
     int index;
+    count=0;
     
     displayHeader();
     
@@ -60,7 +61,6 @@ void WithdrawMenu::makeWithdraw(vector<Account*> &accounts){
 }
 
 void WithdrawMenu::printAccounts(vector<Account*> accounts){
-    int count = 0;
     int width;
     for(auto acct: accounts){
         cout<<setw(20)<<++count<<". "<<acct->getAcctNo();

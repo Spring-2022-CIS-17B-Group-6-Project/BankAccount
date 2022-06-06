@@ -17,7 +17,7 @@ class WithdrawMenu : public Menu{
         void makeWithdraw(vector<Account*>&);
     private:
         void printAccounts(vector<Account*>);
-        int count = 0;
+        int count;
 };
 
 
