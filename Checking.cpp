@@ -27,18 +27,18 @@ Checking::Checking(float balance, float aInterest) : Account(balance, aInterest)
 
 
 void Checking::withdraw(float minusAmount) {
-    if ((Account::getBalance() - minusAmount) < 0) {                 // Check if the balance goes below $0
+    if ((Account::getBalance() - minusAmount) < 0) {
         cout << "Transaction has been canceled." << endl;
         cout << "A service charge of $15 has been added to your account." << endl;
 
         Account::setBalance(Account::getBalance() - 15.00f);
 
-        if (Account::getBalance() < 0) {                           // Check if the balance is negative
+        if (Account::getBalance() < 0) {
             cout << "You owe $" << Account::getBalance() << "to the bank" << endl;
         }
     }
 
-    else {                                          // Complete the transaction 
+    else {
         Account::withdraw(minusAmount);
     }
 }
@@ -46,12 +46,9 @@ void Checking::deposit(float deposit){
 	Account::deposit(deposit);
 }
 
-void Checking::monthlyProc() {                      // Montly fee of $5 plus $0.10 per withdrawal 
-
+void Checking::monthlyProc() {
     Account::setMCharges(Account::getMCharges() + 5.00f + (Account::getWithPerMo() * 0.10f));
-    cout<<"Your total monthly service charges: $" << Account::getMCharges() << endl;
-    cout<<"Monthly fee of $5 plus $"<< (Account::getWithPerMo() * 0.10f) <<" for the total of "<<Account::getWithPerMo()<<" withdraws for this month."<<endl;
-    
+    Account::monthlyProc();
 }
 
 void Checking::setAccountNumber(){

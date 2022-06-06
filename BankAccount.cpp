@@ -14,10 +14,16 @@
 #include "MainMenu.h"
 #include "NewAccountMenu.h"
 #include "WithdrawMenu.h"
+#include "DepositMenu.h"
 
 void openAccount(vector<Account*>&);
 void printStatements(vector<Account*>);
 void withdrawMenu(vector<Account*>);
+void depositMenu(vector<Account*>);
+void newMonth(vector<Account*>);
+
+
+
 int main(int argv, char** argc){
     // Create a map to hold accounts
     vector<Account*> accounts;
@@ -34,25 +40,25 @@ mainMenu_start:
                 && mMenuChoice != 4 && mMenuChoice != 5 && mMenuChoice != 6){
             throw mMenuChoice;
         }
+        // Branch off to each case for Main Menu
+        switch(mMenuChoice){
+            case 1: openAccount(accounts);
+                    goto mainMenu_start;// Open Account Menu
+            case 2: depositMenu(accounts);
+                    goto mainMenu_start;// Deposit to account menu
+            case 3: withdrawMenu(accounts);
+                    goto mainMenu_start;// Withdraw from account menu
+            case 4: printStatements(accounts);// Print Transactions
+                    goto mainMenu_start;
+            case 5: newMonth(accounts);
+                    goto mainMenu_start;
+
+            default: cout<<"Exiting..."<<endl;// end application
+    }
     }catch(int e){
         cout<<"ERROR: Incorrect Selection. Exiting Program..."<<endl;
         return 0;
     }
-    
-    // Branch off to each case for Main Menu
-    switch(mMenuChoice){
-        case 1: openAccount(accounts);
-                goto mainMenu_start;// Open Account Menu
-        case 2: cout<<"Deposit Menu"<<endl;break;// Deposit to account menu
-        case 3: withdrawMenu(accounts);
-                goto mainMenu_start;// Withdraw from account menu
-        case 4: printStatements(accounts);break;// Print Transactions
-        
-        case 5: break;//New month? Need to have new month for monthyProc
-        
-        default: cout<<"Do nothing... Exiting..."<<endl;// Do nothing to end application
-    }
-    
     return 0;
 }
 
@@ -84,22 +90,87 @@ loop:
 }
 
 void printStatements(vector<Account*>accounts){
-    for(auto acct : accounts){
+    int error = 007;
+    try{
+        if(accounts.empty()){
+            throw error;
+        }
+        for(auto acct : accounts){
         acct->printTransactions();
         cout<<"Ending Balance: $"<<acct->getBalance()<<endl<<endl;
+    }
+    }
+    catch(int e){
+        cout<<"No Accounts Exists..."<<endl;
+        return;
     }
 }
 
 void withdrawMenu(vector<Account*> accounts){
-withdraw_start:
-    int choice;
-    // We want to make sure that there are are accounts in the vector,
-    // if vector is null, then we do not want to call withdrawMenu
-    WithdrawMenu withdrawMenu;
-    withdrawMenu.makeWithdraw(accounts);
-    cout<<"Would you like to make a new withdraw?"<<endl;
-    cout<<"1. Make new withdraw"<<endl;
-    cout<<"2. Back to Main Menu"<<endl;
-    cin>>choice;
-    if(choice == 1) goto withdraw_start;
+    int error = 555;
+    withdraw_start:
+    try{
+        if(accounts.empty()){
+            throw error;
+        }
+        int choice;
+        // We want to make sure that there are are accounts in the vector,
+        // if vector is null, then we do not want to call withdrawMenu
+        WithdrawMenu withdrawMenu;
+        withdrawMenu.makeWithdraw(accounts);
+        cout<<"Would you like to make a new withdraw?"<<endl;
+        cout<<"1. Make new withdraw"<<endl;
+        cout<<"2. Back to Main Menu"<<endl;
+        cin>>choice;
+        if(choice == 1) goto withdraw_start;
+    }
+    catch(int e){
+        cout<<"Error: No Accounts Exist..."<<endl;
+        return;
+    }
+    
+}
+
+void depositMenu(vector<Account*> accounts){
+    int error = 8675; 
+deposit_start:
+    
+    try{
+        if(accounts.empty()){
+            throw error;
+        }
+        int choice;
+        // We want to make sure that there are are accounts in the vector,
+        // if vector is null, then we do not want to call withdrawMenu
+        DepositMenu depositMenu;
+        depositMenu.makeDeposit(accounts);
+        cout<<"Would you like to make a new deposit?"<<endl;
+        cout<<"1. Make new deposit"<<endl;
+        cout<<"2. Back to Main Menu"<<endl;
+        cin>>choice;
+        if(choice == 1) goto deposit_start;
+    }
+    catch(int e){
+        cout<<"No Accounts Exitst..."<<endl;
+        return;
+    }
+}
+
+void newMonth(vector<Account*> accounts){
+    int error = 2233;
+    try{
+        if(accounts.empty()){
+            throw error;
+        }
+        for(auto acct : accounts){
+            acct->monthlyProc();
+            cout<<acct->getAcctNo()<<endl;
+            cout<<"Ending Balance: $"<<acct->getBalance()<<endl;
+        }
+    }
+    catch(int e){
+        cout<<"No Accounts Exists..."<<endl;
+        return;
+    }
+        
 }

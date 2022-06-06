@@ -9,10 +9,6 @@
 #define WITHDRAWMENU_H
 
 #include "Menu.h"
-#include "Account.h"
-#include "Checking.h"
-#include "Saving.h"
-#include <vector>
 
 class WithdrawMenu : public Menu{
     public:
@@ -21,7 +17,6 @@ class WithdrawMenu : public Menu{
         void makeWithdraw(vector<Account*>&);
     private:
         void printAccounts(vector<Account*>);
-        Account* account;
 };
 
 
