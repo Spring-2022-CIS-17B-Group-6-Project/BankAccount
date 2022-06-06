@@ -39,7 +39,7 @@ public:
     virtual void setBalance(float);
     void setAInterest(float);
     void setMCharges(float);
-    void setAccountNumber (int);
+    virtual void setAccountNumber (unsigned int);
     void setAcctNo(string);
     
     void setAccountType(string);

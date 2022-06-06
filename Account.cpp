@@ -103,7 +103,7 @@ void Account::setMCharges(float mCharges) {
     this->mCharges = mCharges;
 }
 
-void Account::setAccountNumber(int accountNumber){
+void Account::setAccountNumber(unsigned int accountNumber){
     this->accountNumber = accountNumber;
 }
 
