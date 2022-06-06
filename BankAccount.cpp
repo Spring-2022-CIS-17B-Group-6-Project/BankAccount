@@ -52,8 +52,17 @@ mainMenu_start:
 }
 
 void openAccount(vector<Account*> &accounts){
-    NewAccountMenu newAccount;
-    accounts.push_back(newAccount.createAccount());
+    int error = 187;
+    try{
+        NewAccountMenu newAccount;
+        Account* account = newAccount.createAccount();
+        if(&(*account) == nullptr){
+            throw error;
+        }
+        accounts.push_back(account);
+    }catch(int e){
+        cout<<"ERROR "<<error<<": No Account created"<<endl;
+    }
     cout<<"Returning to main menu..."<<endl;
 }
 
