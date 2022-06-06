@@ -44,7 +44,7 @@ void Saving::withdraw(float withdrawAmnt) {
 void Saving::deposit(float depositAmnt) {
     // Check if account is not active, if not active and depositAmnt >= 25
     // then acvtiveStatus = true;
-    if (!activeStatus && depositAmnt >= 25) activeStatus = true;
+    if (activeStatus==false && depositAmnt >= 25) activeStatus = true;
     Account::deposit(depositAmnt);
 
 
@@ -64,4 +64,9 @@ void Saving::monthlyProc() {
 void Saving::setAccountNumber(){
     Account::setAcctNo("Saving" + to_string(count));
     Account::setAccountNumber(AccountNumber::hashNumber(getAcctNo()));
+}
+
+void Saving::setBalance(float amount){
+    if(amount >= 25) activeStatus = true;
+    Account::setBalance(amount);
 }

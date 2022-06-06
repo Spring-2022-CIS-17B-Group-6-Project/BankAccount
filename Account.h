@@ -36,10 +36,9 @@ public:
 
     void setDepPerMo(unsigned int);
     void setWithPerMo(unsigned int);
-    void setBalance(float);
+    virtual void setBalance(float);
     void setAInterest(float);
     void setMCharges(float);
-    
     void setAccountNumber (int);
     void setAcctNo(string);
     

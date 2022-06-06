@@ -13,10 +13,11 @@
 #include "Saving.h"
 #include "MainMenu.h"
 #include "NewAccountMenu.h"
+#include "WithdrawMenu.h"
 
 void openAccount(vector<Account*>&);
 void printStatements(vector<Account*>);
-
+void withdrawMenu(vector<Account*>);
 int main(int argv, char** argc){
     // Create a map to hold accounts
     vector<Account*> accounts;
@@ -43,9 +44,12 @@ mainMenu_start:
         case 1: openAccount(accounts);
                 goto mainMenu_start;// Open Account Menu
         case 2: cout<<"Deposit Menu"<<endl;break;// Deposit to account menu
-        case 3: cout<<"Withdraw Menu"<<endl;break;// Withdraw from account menu
+        case 3: withdrawMenu(accounts);
+                goto mainMenu_start;// Withdraw from account menu
         case 4: printStatements(accounts);break;// Print Transactions
-        case 5: //New month? Need to have new month for monthyProc
+        
+        case 5: break;//New month? Need to have new month for monthyProc
+        
         default: cout<<"Do nothing... Exiting..."<<endl;// Do nothing to end application
     }
     
@@ -84,4 +88,18 @@ void printStatements(vector<Account*>accounts){
         acct->printTransactions();
         cout<<"Ending Balance: $"<<acct->getBalance()<<endl<<endl;
     }
+}
+
+void withdrawMenu(vector<Account*> accounts){
+withdraw_start:
+    int choice;
+    // We want to make sure that there are are accounts in the vector,
+    // if vector is null, then we do not want to call withdrawMenu
+    WithdrawMenu withdrawMenu;
+    withdrawMenu.makeWithdraw(accounts);
+    cout<<"Would you like to make a new withdraw?"<<endl;
+    cout<<"1. Make new withdraw"<<endl;
+    cout<<"2. Back to Main Menu"<<endl;
+    cin>>choice;
+    if(choice == 1) goto withdraw_start;
 }

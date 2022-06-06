@@ -31,6 +31,7 @@ class Saving : public Account{
         void setTransactionValue(float);
         void PrintTranactionLog();
         
+        void setBalance(float);
 };
 
 #endif /* SAVING_H */
