@@ -24,9 +24,9 @@ Account* NewAccountMenu::createAccount(){
         case 1:
         {// Logic for creating new checking account
             newChecking = new Checking();
-            cout<<"Enter initial deposit amount:"<<endl;
+            cout<<"Enter initial deposit amount: ";
             cin>>balance;
-            cout<<"Enter annual interest rate"<<endl;
+            cout<<"Enter annual interest rate: ";
             cin>>interest;
             newChecking->setBalance(balance);
             newChecking->setAInterest(interest);
@@ -35,13 +35,19 @@ Account* NewAccountMenu::createAccount(){
         }
         case 2:
             // Logic for creating new saving account
-            
-            break;
-        default:
-            newChecking = nullptr;
-            newAccount = newChecking;
+            newSaving = new Saving();
+            cout<<"Enter initial balance: ";
+            cin>>balance;
+            cout<<"Enter annual interest rate: ";
+            cin>>interest;
+            newSaving->setBalance(balance);
+            newSaving->setAInterest(interest);
+            newAccount = newSaving;
             return newAccount;
     }
+    newChecking = nullptr;
+    newAccount = newChecking;
+    return newAccount;
 }
 
 

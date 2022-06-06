@@ -53,6 +53,8 @@ mainMenu_start:
 
 void openAccount(vector<Account*> &accounts){
     int error = 187;
+    int choice;
+loop:
     try{
         NewAccountMenu newAccount;
         Account* account = newAccount.createAccount();
@@ -63,7 +65,16 @@ void openAccount(vector<Account*> &accounts){
     }catch(int e){
         cout<<"ERROR "<<error<<": No Account created"<<endl;
     }
-    cout<<"Returning to main menu..."<<endl;
+    cout<<"Would you like to create a new account?"<<endl;
+    cout<<"1. Create new account"<<endl;
+    cout<<"2. Back to main menu"<<endl;
+    cin>>choice;
+    if(choice == 1){
+        goto loop;
+    }
+    else{
+        cout << "Exiting to main menu..."<<endl;
+    }
 }
 
 void printStatements(vector<Account*>accounts){
