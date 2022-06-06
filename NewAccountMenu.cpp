@@ -7,7 +7,7 @@
 #include "NewAccountMenu.h"
 
 void NewAccountMenu::displayHeader(){
-    cout<<"Create Account Menu:"<<endl;
+    cout<<setw(30)<<"Create Account Menu:"<<endl;
 }
 
 Account* NewAccountMenu::createAccount(){
@@ -54,9 +54,9 @@ Account* NewAccountMenu::createAccount(){
 int NewAccountMenu::getOptions(){
     int choice;
     
-    cout<<"1. Create Checking Account"<<endl;
-    cout<<"2. Create Saving Accout"<<endl;
-    cout<<"3. Exit Back to Main Menu"<<endl;
+    cout<<setw(46)<<"1. Create Checking Account"<<endl;
+    cout<<setw(43)<<"2. Create Saving Accout"<<endl;
+    cout<<setw(45)<<"3. Exit Back to Main Menu"<<endl;
     cin>>choice;
 
     return choice;

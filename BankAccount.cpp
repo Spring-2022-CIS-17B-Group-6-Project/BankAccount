@@ -64,17 +64,17 @@ loop:
         }
         accounts.push_back(account);
     }catch(int e){
-        cout<<"No Account created"<<endl;
+        cout<<setw(28)<<"No Account created"<<endl;
     }
-    cout<<"Would you like to create a new account?"<<endl;
-    cout<<"1. Create new account"<<endl;
-    cout<<"2. Back to main menu"<<endl;
+    cout<<setw(49)<<"Would you like to create a new account?"<<endl;
+    cout<<setw(41)<<"1. Create new account"<<endl;
+    cout<<setw(40)<<"2. Back to main menu"<<endl;
     cin>>choice;
     if(choice == 1){
         goto loop;
     }
     else{
-        cout << "Exiting to main menu..."<<endl;
+        cout<<setw(33)<< "Exiting to main menu..."<<endl;
     }
 }
 
