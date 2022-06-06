@@ -49,7 +49,7 @@ mainMenu_start:
         default: cout<<"Do nothing... Exiting..."<<endl;// Do nothing to end application
     }
     
-    return 0;
+    return 6;
 }
 
 void openAccount(vector<Account*> &accounts){
