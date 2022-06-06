@@ -11,6 +11,7 @@ void NewAccountMenu::displayHeader(){
 }
 
 Account* NewAccountMenu::createAccount(){
+    displayHeader();
     Checking *newChecking = new Checking();
     int choice;
     float balance;
