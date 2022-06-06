@@ -30,7 +30,7 @@ mainMenu_start:
     try{
         mMenuChoice = mainMenu.getOptions();
         if(mMenuChoice!=1 && mMenuChoice !=2 && mMenuChoice != 3 
-                && mMenuChoice != 4 && mMenuChoice != 5){
+                && mMenuChoice != 4 && mMenuChoice != 5 && mMenuChoice != 6){
             throw mMenuChoice;
         }
     }catch(int e){
@@ -45,6 +45,7 @@ mainMenu_start:
         case 2: cout<<"Deposit Menu"<<endl;break;// Deposit to account menu
         case 3: cout<<"Withdraw Menu"<<endl;break;// Withdraw from account menu
         case 4: printStatements(accounts);break;// Print Transactions
+        case 5: //New month? Need to have new month for monthyProc
         default: cout<<"Do nothing... Exiting..."<<endl;// Do nothing to end application
     }
     

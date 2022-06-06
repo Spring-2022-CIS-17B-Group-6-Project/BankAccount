@@ -27,7 +27,8 @@ int MainMenu::getOptions(){
     cout<<setw(29)<<"2. Deposit"<<endl;
     cout<<setw(30)<<"3. Withdraw"<<endl;
     cout<<setw(38)<<"4. Print Statements"<<endl;
-    cout<<setw(26)<<"5. Exit"<<endl;
+    cout<<setw(31)<<"5. New Month"<<endl;
+    cout<<setw(26)<<"6. Exit"<<endl;
     cin>>choice;
 
     return choice;
