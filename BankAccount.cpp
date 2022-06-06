@@ -49,7 +49,7 @@ mainMenu_start:
         default: cout<<"Do nothing... Exiting..."<<endl;// Do nothing to end application
     }
     
-    return 6;
+    return 0;
 }
 
 void openAccount(vector<Account*> &accounts){
@@ -64,7 +64,7 @@ loop:
         }
         accounts.push_back(account);
     }catch(int e){
-        cout<<"ERROR "<<error<<": No Account created"<<endl;
+        cout<<"No Account created"<<endl;
     }
     cout<<"Would you like to create a new account?"<<endl;
     cout<<"1. Create new account"<<endl;
