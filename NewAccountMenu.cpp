@@ -7,6 +7,11 @@
 #include "NewAccountMenu.h"
 
 void NewAccountMenu::displayHeader(){
+    cout<<endl<<setw(12)<<"-";
+    for(int i =0;i<49;i++){
+        cout<<"-";
+    }
+    cout<<endl;
     cout<<setw(34)<<"Create Account Menu:"<<endl;
 }
 
@@ -24,7 +29,7 @@ Account* NewAccountMenu::createAccount(){
         case 1:
         {// Logic for creating new checking account
             newChecking = new Checking();
-            cout<<setw(36)<<"Enter initial amount: ";
+            cout<<setw(37)<<"Enter initial amount: $";
             cin>>balance;
             cout<<setw(42)<<"Enter annual interest rate: ";
             cin>>interest;
@@ -36,7 +41,7 @@ Account* NewAccountMenu::createAccount(){
         case 2:
             // Logic for creating new saving account
             newSaving = new Saving();
-            cout<<setw(36)<<"Enter initial amount: ";
+            cout<<setw(37)<<"Enter initial amount: $";
             cin>>balance;
             cout<<setw(42)<<"Enter annual interest rate: ";
             cin>>interest;
@@ -57,6 +62,12 @@ int NewAccountMenu::getOptions(){
     cout<<setw(45)<<"1. Create Checking Account"<<endl;
     cout<<setw(42)<<"2. Create Saving Accout"<<endl;
     cout<<setw(44)<<"3. Exit Back to Main Menu"<<endl;
+    cout<<setw(12)<<"-";
+    for(int i =0;i<49;i++){
+        cout<<"-";
+    }
+    cout<<endl;
+    cout<<setw(26)<<"Selection: ";
     cin>>choice;
 
     return choice;

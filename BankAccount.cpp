@@ -53,7 +53,7 @@ mainMenu_start:
             case 5: newMonth(accounts);
                     goto mainMenu_start;
 
-            default: cout<<"Exiting..."<<endl;// end application
+            default: cout<<endl<<setw(61)<<"Exiting..."<<endl;// end application
     }
     }catch(int e){
         cout<<"ERROR: Incorrect Selection. Exiting Program..."<<endl;
@@ -74,12 +74,13 @@ loop:
         }
         accounts.push_back(account);
     }catch(int e){
-        cout<<setw(28)<<"No Account created"<<endl;
+        cout<<setw(61)<<"No Account created..."<<endl;
     }
     cout<<endl;
     cout<<setw(53)<<"Would you like to create a new account?"<<endl;
     cout<<setw(40)<<"1. Create new account"<<endl;
     cout<<setw(39)<<"2. Back to main menu"<<endl;
+    cout<<setw(26)<<"Selection: ";
     cin>>choice;
     if(choice == 1){
         goto loop;
@@ -97,11 +98,11 @@ void printStatements(vector<Account*>accounts){
         }
         for(auto acct : accounts){
         acct->printTransactions();
-        cout<<"Ending Balance: $"<<acct->getBalance()<<endl<<endl;
+        cout<<setw(32)<<"Balance: $"<<acct->getBalance()<<endl<<endl;
     }
     }
     catch(int e){
-        cout<<"No Accounts Exists..."<<endl;
+        cout<<setw(61)<<"No Accounts Exists..."<<endl;
         return;
     }
 }
@@ -118,14 +119,15 @@ void withdrawMenu(vector<Account*> accounts){
         // if vector is null, then we do not want to call withdrawMenu
         WithdrawMenu withdrawMenu;
         withdrawMenu.makeWithdraw(accounts);
-        cout<<"Would you like to make a new withdraw?"<<endl;
-        cout<<"1. Make new withdraw"<<endl;
-        cout<<"2. Back to Main Menu"<<endl;
+        cout<<setw(51)<<"Would you like to make a new withdraw?"<<endl;
+        cout<<setw(40)<<"1. Make new withdraw"<<endl;
+        cout<<setw(40)<<"2. Back to Main Menu"<<endl;
+        
         cin>>choice;
         if(choice == 1) goto withdraw_start;
     }
     catch(int e){
-        cout<<"Error: No Accounts Exist..."<<endl;
+        cout<<setw(61)<<"Error: No Accounts Exist..."<<endl<<endl;
         return;
     }
     
@@ -144,14 +146,16 @@ deposit_start:
         // if vector is null, then we do not want to call withdrawMenu
         DepositMenu depositMenu;
         depositMenu.makeDeposit(accounts);
-        cout<<"Would you like to make a new deposit?"<<endl;
-        cout<<"1. Make new deposit"<<endl;
-        cout<<"2. Back to Main Menu"<<endl;
+        cout<<setw(42)<<"Would you like to make a new deposit?"<<endl;
+        cout<<setw(37)<<"1. Make new deposit"<<endl;
+        cout<<setw(38)<<"2. Back to Main Menu"<<endl;
+        cout<<endl;
+        cout<<setw(26)<<"Selection: ";
         cin>>choice;
         if(choice == 1) goto deposit_start;
     }
     catch(int e){
-        cout<<"No Accounts Exitst..."<<endl;
+        cout<<setw(61)<<"No Accounts Exitst..."<<endl<<endl;
         return;
     }
 }
@@ -165,11 +169,11 @@ void newMonth(vector<Account*> accounts){
         for(auto acct : accounts){
             acct->monthlyProc();
             cout<<acct->getAcctNo()<<endl;
-            cout<<"Ending Balance: $"<<acct->getBalance()<<endl;
+            cout<<setw(43)<<"Ending Balance: $"<<acct->getBalance()<<endl;
         }
     }
     catch(int e){
-        cout<<"No Accounts Exists..."<<endl;
+        cout<<setw(61)<<"No Accounts Exists..."<<endl<<endl;
         return;
     }
         
