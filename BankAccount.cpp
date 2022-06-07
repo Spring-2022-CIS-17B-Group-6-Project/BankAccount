@@ -177,9 +177,9 @@ void newMonth(vector<Account*> accounts){
             acct->printTransactions();
             cout<<setw(30)<<"Deposits: "<<acct->getDepPerMo()<<endl;
             cout<<setw(30)<<"Withdraws: "<<acct->getWithPerMo()<<endl;
+            acct->monthlyProc();
             cout<<setw(43)<<"Ending Balance: $"<<
                     fixed<<setprecision(2)<<acct->getBalance()<<endl;
-            acct->monthlyProc();
         }
         cout<<setw(12)<<"-";
         for(int i =0;i<49;i++){
