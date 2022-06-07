@@ -1,8 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/cppFiles/file.cc to edit this template
+ * File: DepositMenu.cpp
+ * Author: Joseph Hernandez
+ * Created on June, 5, 2022
  */
-
 #include "DepositMenu.h"
 
 void DepositMenu::displayHeader(){
