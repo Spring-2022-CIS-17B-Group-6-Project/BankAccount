@@ -47,7 +47,7 @@ void Checking::deposit(float deposit){
 }
 
 void Checking::monthlyProc() {
-    setMCharges(Account::getMCharges() + 5.00f + (Account::getWithPerMo() * 0.10f));
+    Account::setMCharges((Account::getMCharges() + 5.00f) + (Account::getWithPerMo() * 0.10f));
     cout<<setw(30)<<"Monthly Service Charges: $"<<
             fixed<<setprecision(2)<<Account::getMCharges()<<endl;
     Account::monthlyProc();
