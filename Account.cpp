@@ -116,15 +116,16 @@ void Account::setAccountType(string accountType){
 }
 
 void Account::printAccountNumber(){
-    cout<<getAcctNo()<<endl;
-    cout<<"Account Number: "<<getAccountNum()<<endl;
+    cout<<setw(17)<<getAcctNo()<<endl;
+    cout<<setw(27)<<"Account Number: "<<getAccountNum()<<endl;
 }
 
 void Account::printTransactions(){
     printAccountNumber();
-    cout<<"Statement:"<<endl;
+    cout<<setw(21)<<"Statement:"<<endl;
     for(auto ta : transactionList){
-        cout<<setw(12)<<ta.t_Type<<setw(8)<<"$"<<ta.amount<<endl;
+        cout<<setw(30)<<ta.t_Type<<setw(10)<<"$"<<
+                fixed<<setprecision(2)<<ta.amount<<endl;
     }
     cout<<endl;
 }

@@ -97,9 +97,15 @@ void printStatements(vector<Account*>accounts){
             throw error;
         }
         for(auto acct : accounts){
-        acct->printTransactions();
-        cout<<setw(32)<<"Balance: $"<<acct->getBalance()<<endl<<endl;
-    }
+            acct->printTransactions();
+            cout<<setw(52)<<"Balance: $"<<
+                    fixed<<setprecision(2)<<acct->getBalance()<<endl<<endl;
+        }
+        cout<<setw(12)<<"-";
+        for(int i =0;i<49;i++){
+            cout<<"-";
+        }
+        cout<<endl;
     }
     catch(int e){
         cout<<setw(61)<<"No Accounts Exists..."<<endl;
@@ -168,9 +174,14 @@ void newMonth(vector<Account*> accounts){
             throw error;
         }
         for(auto acct : accounts){
+            acct->printTransactions();
+            cout<<setw(30)<<"Deposits: "<<acct->getDepPerMo()<<endl;
+            cout<<setw(30)<<"Withdraws: "<<acct->getWithPerMo()<<endl;
+            cout<<setw(30)<<"Monthly Service Charges: "<<
+                    fixed<<setprecision(2)<<acct->getMCharges()<<endl;
             acct->monthlyProc();
-            cout<<acct->getAcctNo()<<endl;
-            cout<<setw(43)<<"Ending Balance: $"<<acct->getBalance()<<endl;
+            cout<<setw(43)<<"Ending Balance: $"<<
+                    fixed<<setprecision(2)<<acct->getBalance()<<endl;
         }
     }
     catch(int e){

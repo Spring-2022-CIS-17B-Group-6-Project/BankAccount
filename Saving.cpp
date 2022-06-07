@@ -10,7 +10,7 @@
 
 int Saving::count = 0;
 
-Saving::Saving(){
+Saving::Saving(): Account(){
     count++;
     activeStatus = false;
     setAccountNumber();
@@ -44,16 +44,20 @@ void Saving::withdraw(float withdrawAmnt) {
 void Saving::deposit(float depositAmnt) {
     // Check if account is not active, if not active and depositAmnt >= 25
     // then acvtiveStatus = true;
-    if (activeStatus==false && depositAmnt >= 25) activeStatus = true;
+    if (activeStatus==false && depositAmnt >= 25) {
+        activeStatus = true;
+    }
+    
     Account::deposit(depositAmnt);
-
-
 }
 
 void Saving::monthlyProc() {
+    int numberWith = Account::getWithPerMo();
+    
     // Check number of withdraws, if withPerMo > 4, then $1 * (withPerMo - 4) + mCharges
-    if (Account::getWithPerMo() > 4)
-        Account::setMCharges(Account::getMCharges() + (Account::getWithPerMo() - 4));
+    if (numberWith > 4)
+        numberWith-=4;
+        Account::setMCharges(Account::getMCharges() + numberWith);
 
     Account::monthlyProc();
 
