@@ -12,7 +12,7 @@ using namespace std;
 
 class AccountNumber{
 public:
-    static unsigned int hashNumber(const string&);
+    static unsigned int hashNumber(const string&); // Hash any string value
 };
 
 #endif /* ACCOUNTNUMBER_H */

@@ -17,12 +17,12 @@ using namespace std;
 
 class NewAccountMenu :  public Account, public Menu{
 public:
-    void displayHeader();
-    Account* createAccount();
-    int getOptions();
+    void displayHeader();           // Display title
+    Account* createAccount();       // Create new account and pass as Account ptr
+    int getOptions();               // Get menu options from user
 private:
-    int choice;
-    Account* newAccount;
+    int choice;                     // Holds choice for menu
+    Account* newAccount;            // Pointer to new account
 };
 
 #endif /* NEWACCOUNTMENU_H */

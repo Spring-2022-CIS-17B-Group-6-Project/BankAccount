@@ -19,19 +19,19 @@
 
 class  Checking : public Account{      
     private:
-    void setAccountNumber();
+    void setAccountNumber();            // Sets the account number
     
-    static int count;
+    static int count;                   // Counts how many objects created
     
     public:
-        Checking();
-        Checking(float, float);
-        void withdraw (float);
-        void deposit (float);
-        void monthlyProc();
+        Checking();                     // Default Constructor
+        Checking(float, float);         // Constructor to take in bal and interest
+        void withdraw (float);          // Withdraws from account
+        void deposit (float);           // Deposits to account
+        void monthlyProc();             // Monthly Procedures to cal interest
+                                        // and deduct any monthly charges
         
-        inline string getAcctNum() {return Account::getAcctNo();}
-        
+        inline string getAcctNum() {return Account::getAcctNo();} // Returns acct name
 };
 
 #endif /* CHECKING_H */

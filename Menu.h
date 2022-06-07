@@ -16,8 +16,8 @@ using namespace std;
 
 class Menu{
 public:
-    virtual void displayHeader() = 0;
-    virtual int getOptions() = 0;
+    virtual void displayHeader() = 0;   // Display Title of menu
+    virtual int getOptions() = 0;       // Get menu choices
 };
 
 #endif /* MENU_H */

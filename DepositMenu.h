@@ -13,12 +13,12 @@
 
 class DepositMenu : public Menu{
     public:
-        void displayHeader();
-        int getOptions();
-        void makeDeposit(vector<Account*>&);
+        void displayHeader();                   // Display title
+        int getOptions();                       // Get options from user
+        void makeDeposit(vector<Account*>&);    // Deposit into selected account
     private:
-        void printAccounts(vector<Account*>);
-        int count;
+        void printAccounts(vector<Account*>);   // Print accounts
+        int count;                              // Hold number of accounts
 };
 
 #endif /* DEPOSITMENU_H */

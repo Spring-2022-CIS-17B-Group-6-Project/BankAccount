@@ -18,8 +18,8 @@ using namespace std;
 
 class MainMenu : public Menu{
 public:
-    void displayHeader();
-    int getOptions();
+    void displayHeader();       // Display Title
+    int getOptions();           // Get menu options from user
 };
 
 #endif /* MAINMENU_H */

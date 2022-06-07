@@ -14,8 +14,8 @@ using namespace std;
 
 class Transactions{
 public:
-    float amount;
-    string t_Type;
+    float amount;   // Holds transaction amount
+    string t_Type;  // Holds transaction type
 };
 
 
