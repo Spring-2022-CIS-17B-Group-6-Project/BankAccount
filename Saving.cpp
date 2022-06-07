@@ -55,10 +55,12 @@ void Saving::monthlyProc() {
     int numberWith = Account::getWithPerMo();
     
     // Check number of withdraws, if withPerMo > 4, then $1 * (withPerMo - 4) + mCharges
-    if (numberWith > 4)
+    if (numberWith > 4){
         numberWith-=4;
         Account::setMCharges(Account::getMCharges() + numberWith);
-
+    }
+    cout<<setw(30)<<"Monthly Service Charges: $"<<
+            fixed<<setprecision(2)<<Account::getMCharges()<<endl;
     Account::monthlyProc();
 
     // Check if account is below $25. If balance < $25, then activeStatus = false
