@@ -73,6 +73,7 @@ void Account::monthlyProc() {
     depPerMo = 0;                      // Reset deposits per month
     withPerMo = 0;                      // Reset withdraws per month
     mCharges = 0;                      // Reset monthly charges
+    transactionList.clear();
 }
 
 void Account::calcInt() {
