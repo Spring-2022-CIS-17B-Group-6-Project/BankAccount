@@ -59,7 +59,7 @@ void Saving::monthlyProc() {
         numberWith-=4;
         Account::setMCharges(Account::getMCharges() + numberWith);
     }
-    cout<<setw(30)<<"Monthly Service Charges: $"<<
+    cout<<setw(52)<<"Monthly Service Charges: $"<<
             fixed<<setprecision(2)<<Account::getMCharges()<<endl;
     Account::monthlyProc();
 

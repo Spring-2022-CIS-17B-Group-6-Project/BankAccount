@@ -173,12 +173,19 @@ void newMonth(vector<Account*> accounts){
         if(accounts.empty()){
             throw error;
         }
+        cout<<endl;
+        cout<<setw(38)<<"Monthly Statement:"<<endl;
+        cout<<setw(12)<<"-";
+        for(int i=0;i<39;i++){
+            cout<<"-";
+        }
+        cout<<endl;
         for(auto acct : accounts){
             acct->printTransactions();
-            cout<<setw(30)<<"Deposits: "<<acct->getDepPerMo()<<endl;
-            cout<<setw(30)<<"Withdraws: "<<acct->getWithPerMo()<<endl;
+            cout<<setw(52)<<"Deposits: "<<acct->getDepPerMo()<<endl;
+            cout<<setw(52)<<"Withdraws: "<<acct->getWithPerMo()<<endl;
             acct->monthlyProc();
-            cout<<setw(43)<<"Ending Balance: $"<<
+            cout<<setw(53)<<"Ending Balance: $"<<
                     fixed<<setprecision(2)<<acct->getBalance()<<endl;
         }
         cout<<setw(12)<<"-";
